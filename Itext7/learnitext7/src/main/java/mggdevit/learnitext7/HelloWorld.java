@@ -16,7 +16,9 @@ import com.itextpdf.layout.element.Paragraph;
 public class HelloWorld {
 	public static void main(String[] args) {
 		// System.out.println( "Hello World!" );
+		System.out.println("start");
 		new HelloWorld().createPDF(".\\LearnItext7-HelloWorld.pdf");
+		System.out.println("end");
 	}
 
 	private void createPDF(String sFileName) {
@@ -24,7 +26,7 @@ public class HelloWorld {
 			PdfWriter writer = new PdfWriter(sFileName);
 			PdfDocument pdf = new PdfDocument(writer);
 			Document document = new Document(pdf);
-			document.add(new Paragraph("Hello World!"));
+			document.add(new Paragraph("Hello World :)"));
 			document.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
