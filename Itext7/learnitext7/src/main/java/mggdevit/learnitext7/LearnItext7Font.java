@@ -23,15 +23,32 @@ public class LearnItext7Font {
 			PdfDocument pdf = new PdfDocument(writer);
 			Document document = new Document(pdf);
 			
-			//PdfFont font = PdfFontFactory.createFont(com.itextpdf.io.font.FontConstants.TIMES_ROMAN);
-			PdfFont font = PdfFontFactory.createFont(com.itextpdf.io.font.constants.StandardFonts.TIMES_ROMAN);
-			
-			document.add(new Paragraph("Hello World :)"));
 			document.add(new Paragraph("aáeéiíoóöőuúüű"));
 			document.add(new Paragraph("AÁEÉIÍOÓÖŐUÚÜŰ"));
+			
+			//PdfFont font = PdfFontFactory.createFont(com.itextpdf.io.font.FontConstants.TIMES_ROMAN); //deprecated
+			PdfFont font = PdfFontFactory.createFont(com.itextpdf.io.font.constants.StandardFonts.TIMES_ROMAN);
+			
 			document.add(new Paragraph("Times Roman").setFont(font));
 			document.add(new Paragraph("aáeéiíoóöőuúüű").setFont(font));
 			document.add(new Paragraph("AÁEÉIÍOÓÖŐUÚÜŰ").setFont(font));
+			document.add(new Paragraph("x\uc591y").setFont(font));
+			document.add(new Paragraph("x\u2022y").setFont(font));
+
+			PdfFont fontUTF8 = PdfFontFactory.createFont(com.itextpdf.io.font.constants.StandardFonts.TIMES_ROMAN, "UTF-8");
+			document.add(new Paragraph("Times Roman UTF-8").setFont(fontUTF8));
+			document.add(new Paragraph("aáeéiíoóöőuúüű").setFont(fontUTF8));
+			document.add(new Paragraph("AÁEÉIÍOÓÖŐUÚÜŰ").setFont(fontUTF8));
+			document.add(new Paragraph("x\uc591y").setFont(fontUTF8));
+			document.add(new Paragraph("x\u2022y").setFont(fontUTF8));
+			
+			PdfFont fontISO_8859_2 = PdfFontFactory.createFont(com.itextpdf.io.font.constants.StandardFonts.TIMES_ROMAN, "ISO-8859-2");
+			document.add(new Paragraph("Times Roman font ISO_8859_2").setFont(fontISO_8859_2));
+			document.add(new Paragraph("aáeéiíoóöőuúüű").setFont(fontISO_8859_2));
+			document.add(new Paragraph("AÁEÉIÍOÓÖŐUÚÜŰ").setFont(fontISO_8859_2));
+			document.add(new Paragraph("x\uc591y").setFont(fontISO_8859_2));
+			document.add(new Paragraph("x\u2022y").setFont(fontISO_8859_2));
+			
 			
 			PdfFont fontHUTimes = PdfFontFactory.createFont(new TrueTypeFont("mggdevit/learnitext7/fonts/times.ttf"), "ISO-8859-2", true);
 			document.add(new Paragraph("Times hungarian: aáeéiíoóöőuúüű AÁEÉIÍOÓÖŐUÚÜŰ").setFont(fontHUTimes));

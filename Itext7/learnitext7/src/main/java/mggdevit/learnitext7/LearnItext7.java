@@ -6,6 +6,7 @@ public class LearnItext7 {
 		System.out.println("LearnItext7 start");
 		new HelloWorld().createPDF(".\\LearnItext7-HelloWorld.pdf");
 		new LearnItext7Font().createPDF(".\\LearnItext7-Font.pdf");
+		new LearnItext7List().createPDF(".\\LearnItext7-List.pdf");
 		System.out.println("LearnItext7 end");
 
 	}
