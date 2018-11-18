@@ -7,9 +7,9 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 
-public class HelloWorld {
+public class LearnItext7HelloWorld {
 
-	public HelloWorld() {
+	public LearnItext7HelloWorld() {
 	}
 
 	public void createPDF(String sFileName) {
