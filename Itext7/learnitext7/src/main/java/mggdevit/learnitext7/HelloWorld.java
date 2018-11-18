@@ -6,27 +6,21 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
-//import com.itextpdf.test.annotations.WrapToTest;
 
-/**
- * Learn Itext7 Hello world!
- *
- */
-//@WrapToTest
 public class HelloWorld {
-	public static void main(String[] args) {
-		// System.out.println( "Hello World!" );
-		System.out.println("start");
-		new HelloWorld().createPDF(".\\LearnItext7-HelloWorld.pdf");
-		System.out.println("end");
+
+	public HelloWorld() {
 	}
 
-	private void createPDF(String sFileName) {
+	public void createPDF(String sFileName) {
+		System.out.println("Creating " + sFileName);
 		try {
 			PdfWriter writer = new PdfWriter(sFileName);
 			PdfDocument pdf = new PdfDocument(writer);
 			Document document = new Document(pdf);
 			document.add(new Paragraph("Hello World :)"));
+			document.add(new Paragraph("aáeéiíoóöőuúüű"));
+			document.add(new Paragraph("AÁEÉIÍOÓÖŐUÚÜŰ"));
 			document.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
