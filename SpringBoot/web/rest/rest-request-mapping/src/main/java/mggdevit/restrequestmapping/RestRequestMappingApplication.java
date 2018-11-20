@@ -9,4 +9,7 @@ public class RestRequestMappingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RestRequestMappingApplication.class, args);
 	}
+	//https://www.baeldung.com/spring-requestmapping
+	//https://springframework.guru/spring-requestmapping-annotation/
+	
 }
