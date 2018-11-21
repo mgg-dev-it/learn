@@ -26,5 +26,7 @@ public class RestHelloWorldApplication {
 	
 	//https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html
 	//https://www.baeldung.com/spring-controller-vs-restcontroller
+	//https://www.baeldung.com/tomcat-change-port
+	//https://www.baeldung.com/spring-boot-change-port
 	
 }
