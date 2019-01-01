@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>mgg-dev-it</groupId>
-	<artifactId>role</artifactId>
+	<artifactId>config</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>role</name>
-	<description>Spring Boot II. 07. Spring Security - Role</description>
+	<name>sec-config</name>
+	<description>Spring Boot II. 08. Spring Security - Config</description>
 
 	<properties>
 		<java.version>1.8</java.version>
