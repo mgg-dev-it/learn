@@ -1,4 +1,4 @@
-package mggdevit.secconfig.controller;
+package mggdevit.config.controller;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RequestMapping;
