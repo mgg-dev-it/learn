@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 /*
+ * in order to use h2 console during the development phase:
+ * 
  * https://springframework.guru/using-the-h2-database-console-in-spring-boot-with-spring-security/
  * 
  * https://www.logicbig.com/tutorials/spring-framework/spring-boot/jdbc-security-with-h2-console.html
