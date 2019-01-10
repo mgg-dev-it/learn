@@ -4,9 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /*
- * jdbc:h2:mem:testdb
- * sa
- * <empty> 
+ * driver = org.h2.Driver
+ * url    = jdbc:h2:mem:testdb
+ * user   = sa
+ * pw     = <empty> 
  * 
  */
 
