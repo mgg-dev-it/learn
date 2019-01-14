@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>JDBC Basic</title>
+<link rel="stylesheet" th:href="@{/css/mgg.css}" />
+</head>
+
+<body>
+	<div>JDBC Basic list</div>
+	<div>
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Age</th>
+			</tr>
+			<tr th:each="item : ${items}">
+				<td th:utext="${item.id}">...</td>
+				<td th:utext="${item.name}">...</td>
+				<td th:utext="${item.age}">...</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+
+
+</html>
