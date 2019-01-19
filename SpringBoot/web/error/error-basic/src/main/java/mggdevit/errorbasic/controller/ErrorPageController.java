@@ -44,8 +44,7 @@ public class ErrorPageController implements ErrorController {
 
 	@Override
 	public String getErrorPath() {
-		// TODO Auto-generated method stub
-		return null;
+		return (ERR_PATH);
 	}
 
 }
