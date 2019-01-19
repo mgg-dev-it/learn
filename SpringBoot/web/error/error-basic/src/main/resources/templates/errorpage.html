@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Error Basic</title>
+<link rel="stylesheet" th:href="@{/css/mgg.css}" />
+</head>
+
+<body>
+	<div>Error Basic</div>
+	<section>
+		<p th:text="${timestamp}">timestamp</p>
+		<p th:text="${status}">status</p>
+		<p th:text="${error}">error</p>
+		<p th:text="${message}">message</p>
+		<p th:text="${trace}">trace</p>
+		<p th:text="${path}">path</p>
+	</section>
+
+</body>
+
+
+</html>
