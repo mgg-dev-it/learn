@@ -27,17 +27,22 @@ public class ErrorPageController implements ErrorController {
 
 	@RequestMapping(ERR_PATH)
 	public String error(Model model, HttpServletRequest request) {
-		//RequestAttributes requestAttributes = new ServletRequestAttributes(request);
-		//Map<String, Object> errorMap = this.errorAttributes.getErrorAttributes(requestAttributes, true);
+		// RequestAttributes requestAttributes = new ServletRequestAttributes(request);
+		// Map<String, Object> errorMap =
+		// this.errorAttributes.getErrorAttributes(requestAttributes, true);
 		ServletWebRequest servletWebRequest = new ServletWebRequest(request);
 		Map<String, Object> errorAttributes = this.errorAttributes.getErrorAttributes(servletWebRequest, true);
-		
+
 		model.addAttribute("timestamp", errorAttributes.get("timestamp"));
 		model.addAttribute("status", errorAttributes.get("status"));
 		model.addAttribute("error", errorAttributes.get("error"));
 		model.addAttribute("message", errorAttributes.get("message"));
 		model.addAttribute("trace", errorAttributes.get("trace"));
 		model.addAttribute("path", errorAttributes.get("path"));
+
+		if (errorAttributes.get("status").toString().equalsIgnoreCase("404")) {
+			return ("error404page");
+		}
 		
 		return ("errorpage");
 	}
