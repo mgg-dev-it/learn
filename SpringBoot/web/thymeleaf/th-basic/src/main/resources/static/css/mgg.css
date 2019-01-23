@@ -3,16 +3,32 @@ body {
 	color: #000088;
 	font-family: Arial, Helvetica, sans-serif;
 }
+
 table, th, td {
-  border: 1px solid #000088;
-  border-collapse: collapse;
+	border: 1px solid #000088;
+	border-collapse: collapse;
 }
+
 th, td {
-  padding: 3px;
+	padding: 3px;
 }
+
+th {
+	background-color: lightblue;
+}
+
 tr:nth-child(odd) {
-  background-color: #82C0FF;
+	background-color: #82C0FF;
 }
+
 tr:nth-child(even) {
-  background-color: #C0E1FF;
+	background-color: #C0E1FF;
+}
+
+tr:hover:nth-child(odd) {
+	background-color: yellow;
+}
+
+tr:hover:nth-child(even) {
+	background-color: yellow;
 }
