@@ -32,3 +32,7 @@ tr:hover:nth-child(odd) {
 tr:hover:nth-child(even) {
 	background-color: yellow;
 }
+
+.commondiv{
+	margin: 10px;
+}

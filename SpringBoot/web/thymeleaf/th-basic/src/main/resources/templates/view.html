@@ -10,13 +10,13 @@
 </head>
 
 <body>
-	<div>Thymeleaf Basic View page</div>
+	<div class="commondiv">Thymeleaf Basic View page</div>
 
-	<div>
+	<div class="commondiv">
 		<span th:text="${message}"></span>
 	</div>
 
-	<div>
+	<div class="commondiv">
 		<table border="1">
 			<caption>Persons</caption>
 			<tr>
@@ -30,14 +30,35 @@
 		</table>
 	</div>
 
-	<div>
+	<div class="commondiv">
+		<table>
+			<tr>
+				<th>1</th>
+				<th>2</th>
+			</tr>
+			<tr>
+				<td>text</td>
+				<td th:text="${th_text_example}">...</td>
+			</tr>
+			<tr>
+				<td>utext</td>
+				<td th:utext="${th_utext_example}">...</td>
+			</tr>
+			<tr>
+				<td>date and time format</td>
+				<td th:text="${#dates.format(th_date_today, 'yyyy.MM.dd HH:mm:ss')}">...</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="commondiv">
 		<form action="/action_page.php">
 			<fieldset>
-				<legend>Personal information:</legend>
+				<legend>Personal information</legend>
 				First name:<br> <input type="text" name="firstname"
 					value="Mickey"> <br> Last name:<br> <input
-					type="text" name="lastname" value="Mouse"> <br>
-				<br> <input type="submit" value="Submit">
+					type="text" name="lastname" value="Mouse"> <br> <br>
+				<input type="submit" value="Submit">
 			</fieldset>
 		</form>
 	</div>
