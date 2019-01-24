@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Form Basic</title>
+<link rel="stylesheet" th:href="@{/css/mgg.css}" />
+</head>
+
+<body>
+	<div class="commondiv">Form Basic Form page</div>
+
+	<div class="commondiv">
+		<form action="form" th:action="@{/form}" th:object="${person}" method="post">
+			<fieldset>
+				<legend>Person</legend>
+				<table class="tableforform">
+					<tr class="trforform">
+						<td class="tdforform"><label for="firstName">First name:</label></td>
+						<td class="tdforform"><input type="text" th:field="*{firstName}" value="John" /></td>
+					</tr>
+					<tr class="trforform">
+						<td class="tdforform"><label for="lastName">Last name:</label></td>
+						<td class="tdforform"><input type="text" th:field="*{lastName}" value="Wayne" /></td>
+					</tr>
+					<tr class="trforform">
+						<td class="tdforform">&nbsp;</td>
+						<td class="tdforform"><input type="submit" value="Submit" /></td>
+					</tr>
+				</table>
+
+			</fieldset>
+		</form>
+	</div>
+
+</body>
+
+
+</html>
