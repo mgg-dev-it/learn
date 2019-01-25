@@ -21,8 +21,8 @@ public class HomeController {
 	@RequestMapping("/view")
 	public String view(Model model) {
 		model.addAttribute("message", "Message");
-		model.addAttribute("th_text_example", "<div>blabla</div>");
-		model.addAttribute("th_utext_example", "<div>blabla</div>");
+		model.addAttribute("th_text_example", "<div>bla<br>bla</div>");
+		model.addAttribute("th_utext_example", "<div>bla<br>bla</div>");
 		model.addAttribute("th_date_today", new java.util.Date());
 		model.addAttribute("persons", persons);
 		return ("view");
