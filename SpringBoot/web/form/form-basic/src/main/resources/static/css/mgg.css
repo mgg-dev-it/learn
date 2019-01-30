@@ -13,40 +13,40 @@ th, td {
 	padding: 3px;
 }
 
-th {
-	background-color: lightblue;
-}
+/* th { */
+/* 	background-color: lightblue; */
+/* } */
 
-tr:nth-child(odd) {
-	background-color: #82C0FF;
-}
+/* tr:nth-child(odd) { */
+/* 	background-color: #82C0FF; */
+/* } */
 
-tr:nth-child(even) {
-	background-color: #C0E1FF;
-}
+/* tr:nth-child(even) { */
+/* 	background-color: #C0E1FF; */
+/* } */
 
-tr:hover:nth-child(odd) {
-	background-color: yellow;
-}
+/* tr:hover:nth-child(odd) { */
+/* 	background-color: yellow; */
+/* } */
 
-tr:hover:nth-child(even) {
-	background-color: yellow;
-}
+/* tr:hover:nth-child(even) { */
+/* 	background-color: yellow; */
+/* } */
 
-.commondiv {
-	margin: 10px;
-}
+/* .commondiv { */
+/* 	margin: 10px; */
+/* } */
 
-.tableforform {
-	border: 0px;
-}
+/* .tableforform { */
+/* 	border: 0px; */
+/* } */
 
-.trforform {
-	background-color: red;
-	border: 0px;
-}
+/* .trforform { */
+/* 	background-color: red; */
+/* 	border: 0px; */
+/* } */
 
-.thforform, .tdforform {
-	padding: 3px;
-	border: 0px;
-}
+/* .thforform, .tdforform { */
+/* 	padding: 3px; */
+/* 	border: 0px; */
+/* } */

@@ -1,8 +1,19 @@
 package mggdevit.formbasic.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import mggdevit.formbasic.validation.ValidEmail;
+
 public class Person {
-	 
+	
+	@NotNull
+	@NotEmpty
     private String firstName;
+
+	@NotNull
+	@NotEmpty
+	@ValidEmail
     private String lastName;
  
     public Person() {
