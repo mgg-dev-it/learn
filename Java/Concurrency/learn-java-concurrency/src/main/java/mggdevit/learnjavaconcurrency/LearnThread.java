@@ -36,6 +36,6 @@ public class LearnThread {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("iCount = " + iCount + " (it should be " + 2 * CYCLE + ")");
+		System.out.println("iCount = " + iCount + " (it should be " + 2 * CYCLE + " !)");
 	}
 }
