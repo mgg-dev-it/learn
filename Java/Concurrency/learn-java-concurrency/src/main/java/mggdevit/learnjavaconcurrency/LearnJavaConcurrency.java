@@ -10,7 +10,7 @@ public class LearnJavaConcurrency {
 		System.out.println("");
 		System.out.println("LEARNING CONCURRENCY");
 		System.out.println("");
-		LearnThread.learn();
+		new LearnThread().learn();
 		System.out.println("");
 	}
 }
