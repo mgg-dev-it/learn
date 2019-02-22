@@ -29,6 +29,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configureAuth(AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(userService);
+		//@todo auth.userDetailsService(userService).passwordEncoder(passwordEncoder);
+		//@todo auth.userDetailsService(userService).userDetailsPasswordManager(passwordManager);
 		//@todo auth.jdbcAuthentication(); //https://www.boraji.com/spring-security-5-jdbc-based-authentication-example
 	}
 	
