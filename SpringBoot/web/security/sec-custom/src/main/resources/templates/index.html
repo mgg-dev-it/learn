@@ -15,10 +15,10 @@
 <body>
 	<div>Security Custom index page</div>
 
-	<div>
+	<div sec:authorize="!isAuthenticated()">
 		<a href="/login">login</a>
 	</div>
-	<div>
+	<div sec:authorize="isAuthenticated()">
 		<a href="/logout">logout</a>
 	</div>
 
