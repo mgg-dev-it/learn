@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- <footer class="w3-container w3-light-blue w3-bottom"> -->
+
+<div th:fragment="footer">
+
+	<footer class="w3-container w3-hide" th:classappend="#{color.footer}">
+		<div>&copy; Copyright</div>
+	</footer>
+
+	<footer class="w3-container w3-bottom" th:classappend="#{color.footer}">
+		<div>&copy; Copyright</div>
+	</footer>
+</div>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="copy">&copy; 2011 The Good Thymes Virtual	Grocery</div>
+</body>
+</html> -->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="header">
+<!-- <header class="w3-container w3-light-blue w3-top"> -->
+<header class="w3-container w3-light-blue w3-top" id="hdr">
+	 <div class="w3-bar w3-light-blue">
+		  <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue w3-text-pink">Home</a>
+		  <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Link 1</a>
+		  <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Link 2</a>
+		  <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Link 3</a>
+		  <div class="w3-dropdown-hover">
+			    <button class="w3-button w3-text-indigo w3-light-blue w3-hover-blue">Dropdown</button>
+			    <div class="w3-dropdown-content w3-bar-block w3-card-4 w3-light-blue">
+				      <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Link 11</a>
+				      <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Link 12</a>
+				      <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Link 13</a>
+			    </div>
+		  </div>
+		  <span class="w3-bar-item w3-text-indigo w3-right">Text</span>
+	</div>
+</header>
+
+<!-- <br><br> -->
+
+<div class="w3-container" id="hdr2">
+<p>x&nbsp;y</p>
+</div>
+
+<script type="text/javascript">
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+
+function getHeight() {
+  var header = document.getElementById("hdr");
+  var header_height = hdr.offsetHeight;
+  document.getElementById("out").innerHTML = header_height;
+  document.getElementById("hdr2").style.height = header_height+"px";
+};
+
+window.onload = getHeight();
+window.onresize = getHeight();
+
+</script>
+
+</div>
+
+</body>
+</html>
