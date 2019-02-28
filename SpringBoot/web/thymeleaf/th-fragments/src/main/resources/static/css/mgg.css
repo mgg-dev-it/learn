@@ -36,3 +36,5 @@ tr:hover:nth-child(even) {
 .commondiv{
 	margin: 10px;
 }
+
+.w3-theme {color:#000 !important; background-color:#E0F1FF !important}
