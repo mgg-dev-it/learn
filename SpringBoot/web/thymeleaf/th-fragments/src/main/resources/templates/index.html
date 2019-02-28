@@ -1,80 +1,56 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Thymeleaf Fragments</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="/css/mgg.css" th:href="@{/css/mgg.css}" />
-</head>
-
-<!-- <body class="w3-pale-blue"> -->
-<body class="w3-theme">
-
-<div th:replace="~{header :: header}"></div>
-
-<!-- <div class="w3-container w3-pale-blue"> -->
-<div class="w3-container w3-theme">
-  <p>0</p>
-  <p>1</p>
-  <p>2</p>
-  <p>3</p>
-  <p th:utext=#{color.footer}>color</p>
-  <p th:utext=#{msg}>msg</p>
-  <div id="out">out</div>
-  <div id="out2">out2</div>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>W3.CSS</p>
-  <p>98</p>
-  <p>99</p>
-</div>
-
-<div th:replace="~{footer :: footer}"></div>
-
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Thymeleaf Fragments</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="/css/mgg.css" th:href="@{/css/mgg.css}" />
+	</head>
+	
+	<body class="w3-mgg-theme-body">
+	
+		<div th:replace="~{header :: header}"></div>
+		
+		<!-- <div class="w3-container w3-pale-blue"> -->
+		<div class="w3-container w3-mgg-theme-body">
+			 <p>0</p>
+			 <p>1</p>
+			 <p>2</p>
+			 <p>3</p>
+			 <p th:utext=#{color.footer}>color</p>
+			 <p th:utext=#{msg}>msg</p>
+			 <div id="out">out</div>
+			 <div id="out2">out2</div>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>W3.CSS</p>
+			 <p>98</p>
+			 <p>99</p>
+		</div>
+	
+		<div th:replace="~{footer :: footer}"></div>
+	
+	</body>
 </html>
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org">
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<title>Thymeleaf Fragments</title>
-<link rel="stylesheet" th:href="@{/css/mgg.css}" />
-</head>
-
-<body>
-	<div>Thymeleaf Fragments index page</div>
-
-
-	<div th:insert="~{footer :: copy}"></div>
-</body>
-</html> -->

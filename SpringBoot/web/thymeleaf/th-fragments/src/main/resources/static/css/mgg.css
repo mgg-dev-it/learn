@@ -1,40 +1,6 @@
-body {
-	background-color: #E0F1FF;
-	color: #000088;
-	font-family: Arial, Helvetica, sans-serif;
-}
+.w3-mgg-theme-body {color:#000088 !important; background-color:#E0F1FF !important; font-family: Arial, Helvetica, sans-serif; !important}
 
-table, th, td {
-	border: 1px solid #000088;
-	border-collapse: collapse;
-}
+.w3-mgg-theme-header {color:#000 !important; background-color:#79bff8 !important}
 
-th, td {
-	padding: 3px;
-}
+.w3-mgg-theme-footer {color:#000 !important; background-color:#79bff8 !important}
 
-th {
-	background-color: lightblue;
-}
-
-tr:nth-child(odd) {
-	background-color: #82C0FF;
-}
-
-tr:nth-child(even) {
-	background-color: #C0E1FF;
-}
-
-tr:hover:nth-child(odd) {
-	background-color: yellow;
-}
-
-tr:hover:nth-child(even) {
-	background-color: yellow;
-}
-
-.commondiv{
-	margin: 10px;
-}
-
-.w3-theme {color:#000 !important; background-color:#E0F1FF !important}

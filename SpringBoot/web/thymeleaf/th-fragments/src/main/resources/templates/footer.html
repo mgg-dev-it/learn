@@ -1,42 +1,32 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
 
-<div th:fragment="footer" th:remove="tag">
-
-	<div class="w3-container" id="ftr2">
-		<p>&nbsp;</p>
+	<body>
+	
+	<div th:fragment="footer" th:remove="tag">
+	
+		<div class="w3-container" id="ftr2">
+			<p>&nbsp;</p>
+		</div>
+	
+		<footer class="w3-container w3-bottom w3-mgg-theme-footer" id="ftr">
+			<div>&copy; Copyright</div>
+		</footer>
+	
+		<script type="text/javascript">
+			window.addEventListener("resize", doResizeFooter);
+			doResizeFooter();
+			function doResizeFooter() {
+			   var footer = document.getElementById("ftr");
+			   var footer_height = footer.offsetHeight;
+			   document.getElementById("ftr2").style.height = footer_height+"px";
+			};
+		</script>
+	
 	</div>
-
-	<footer class="w3-container w3-bottom" th:classappend="#{color.footer}" id="ftr">
-		<div>&copy; Copyright</div>
-	</footer>
-
-<script type="text/javascript">
-
-window.addEventListener("resize", doResizeFooter);
-doResizeFooter();
-function doResizeFooter() {
-   var footer = document.getElementById("ftr");
-   var footer_height = footer.offsetHeight;
-   document.getElementById("ftr2").style.height = footer_height+"px";
-};
-
-</script>
-
-
-</div>
-
-</body>
+	
+	</body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<body>
-	<div th:fragment="copy">&copy; 2011 The Good Thymes Virtual	Grocery</div>
-</body>
-</html> -->
