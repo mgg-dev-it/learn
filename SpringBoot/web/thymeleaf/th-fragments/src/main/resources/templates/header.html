@@ -7,7 +7,8 @@
 	<body>
 	
 	<div th:fragment="header" th:remove="tag">
-		<header class="w3-container w3-mgg-theme-header w3-top" id="hdr">
+
+		<header class="w3-container w3-mgg-theme-header w3-top" id="id-header">
 			 <div class="w3-bar w3-mgg-theme-header">
 				  <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue w3-text-pink">Home</a>
 				  <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Link 1</a>
@@ -25,20 +26,8 @@
 			</div>
 		</header>
 		
-		<div class="w3-container" id="hdr2">
-			<p>&nbsp;</p>
-		</div>
-		
-		<script type="text/javascript">
-			window.addEventListener("resize", doResize);
-			doResize();
-			function doResize() {
-			   var header = document.getElementById("hdr");
-			   var header_height = header.offsetHeight;
-			   document.getElementById("hdr2").style.height = header_height+"px";
-			};
-		</script>
-		
+		<div th:replace="~{headerplaceholder :: headerplaceholder}"></div>
+
 	</div>
 	
 	</body>

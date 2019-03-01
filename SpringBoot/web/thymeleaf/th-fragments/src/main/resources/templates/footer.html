@@ -8,23 +8,11 @@
 	
 	<div th:fragment="footer" th:remove="tag">
 	
-		<div class="w3-container" id="ftr2">
-			<p>&nbsp;</p>
-		</div>
-	
-		<footer class="w3-container w3-bottom w3-mgg-theme-footer" id="ftr">
+		<div th:replace="~{footerplaceholder :: footerplaceholder}"></div>
+
+		<footer class="w3-container w3-bottom w3-mgg-theme-footer" id="id-footer">
 			<div>&copy; Copyright</div>
 		</footer>
-	
-		<script type="text/javascript">
-			window.addEventListener("resize", doResizeFooter);
-			doResizeFooter();
-			function doResizeFooter() {
-			   var footer = document.getElementById("ftr");
-			   var footer_height = footer.offsetHeight;
-			   document.getElementById("ftr2").style.height = footer_height+"px";
-			};
-		</script>
 	
 	</div>
 	

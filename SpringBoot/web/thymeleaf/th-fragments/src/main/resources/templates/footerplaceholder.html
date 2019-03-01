@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+
+	<body>
+	
+	<div th:fragment="footerplaceholder" th:remove="tag">
+	
+		<div class="w3-container" id="id-footer-placeholder">
+			<p>&nbsp;</p>
+		</div>
+	
+		<script type="text/javascript">
+			window.addEventListener("resize", doResizeFooter);
+			doResizeFooter();
+			function doResizeFooter() {
+			   //var footer = document.getElementById("id-footer");
+			   //var footer_height = footer.offsetHeight;
+			   //document.getElementById("id-footer-placeholder").style.height = footer_height+"px";
+			   document.getElementById("id-footer-placeholder").style.height = document.getElementById("id-footer").offsetHeight + "px";
+			};
+		</script>
+	
+	</div>
+	
+	</body>
+</html>
