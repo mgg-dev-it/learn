@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Security Custom login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" th:href="@{/css/mgg.css}" />
+	</head>
 
-<title>Security Custom login</title>
-<link rel="stylesheet" th:href="@{/css/mgg.css}" />
-</head>
+	<body class="w3-mgg-theme-body">
 
-<body>
-	<div>Security Custom login page</div>
+		<div th:replace="~{header :: header}"></div>
+
+		<div>Security Custom login page</div>
+
+
+		<div sec:authorize="!isAuthenticated()">
+			<a href="/login">login</a>
+		</div>
+		<div sec:authorize="isAuthenticated()">
+			<a href="/logout">logout</a>
+		</div>
+	
+		<div sec:authorize="isAuthenticated()">This content is only shown to authenticated users.</div>
+		<div sec:authorize="hasRole('ROLE_ADMIN')">This content is only	shown to administrators.</div>
+		<div sec:authorize="hasRole('ROLE_USER')">This content is only shown to users.</div>
+	
+		<div sec:authorize="isAuthenticated()">
+			<div>Logged user: <span sec:authentication="name">Bob</span></div>
+			<div>Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></div>
+			<div>Username: <span sec:authentication="principal.username">Bob</span></div>
+		</div>
+
 
 <form name="login" th:action="@{/login}" method="post" class="form-signin">
 			<h2 class="form-signin-heading">Kérlek jelentkezz be</h2>
@@ -30,9 +51,10 @@
 <!-- 				</label> -->
 <!-- 			</div> -->
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Bejelentkezés</button>
-</form>
+	</form>
 		
-</body>
+		<div th:replace="~{footer :: footer}"></div>
 
+	</body>
 
 </html>

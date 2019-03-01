@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+
+	<body>
+	
+	<div th:fragment="header" th:remove="tag">
+
+		<header class="w3-container w3-mgg-theme-header w3-top" id="id-header">
+			 <div class="w3-bar w3-mgg-theme-header">
+				  <a href="#" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Home</a>
+				  <a href="/login" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="!isAuthenticated()">Login</a>
+				  <a href="/logout" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="isAuthenticated()">Logout</a>
+			</div>
+		</header>
+		
+		<div th:replace="~{headerplaceholder :: headerplaceholder}"></div>
+
+	</div>
+	
+	</body>
+</html>

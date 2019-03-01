@@ -1,4 +1,11 @@
-body {
+.w3-mgg-theme-body {color:#000088 !important; background-color:#E0F1FF !important; font-family: Arial, Helvetica, sans-serif; !important}
+
+.w3-mgg-theme-header {color:#000 !important; background-color:#79bff8 !important}
+
+.w3-mgg-theme-footer {color:#000 !important; background-color:#79bff8 !important}
+
+
+xbody {
 	background-color: #E0F1FF;
 	color: #000088;
 	font-family: Arial, Helvetica, sans-serif;
