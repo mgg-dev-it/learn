@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSec.authorizeRequests()
 				// .antMatchers(HttpMethod.GET, "/").permitAll()
 				.antMatchers("/").permitAll()
+				.antMatchers("/index").permitAll()
 				.antMatchers("/css/**").permitAll()
 				// .antMatchers("/db/**").permitAll() //only for h2 console
 				// .antMatchers("/userpage").hasRole("USER")
@@ -52,7 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //				.logout().logoutSuccessUrl("/").permitAll();
 //		.logout().logoutSuccessUrl("/login?logout").permitAll();
 //		.logout().logoutUrl("/login?logout").permitAll();
-		.logout().logoutUrl("/logout").permitAll();
+//		.logout().logoutUrl("/logout").logoutSuccessUrl("/").invalidateHttpSession(true).deleteCookies("JSESSIONID").permitAll();
+//		.logout().logoutUrl("/logout").logoutSuccessUrl("/login?logout").invalidateHttpSession(true).deleteCookies("JSESSIONID").permitAll();
+		.logout().logoutUrl("/logout").logoutSuccessUrl("/login?logout").invalidateHttpSession(true).deleteCookies("JSESSIONID").permitAll();
 //		.logout().permitAll();
 
 		// httpSec.csrf().disable(); //only for h2 console

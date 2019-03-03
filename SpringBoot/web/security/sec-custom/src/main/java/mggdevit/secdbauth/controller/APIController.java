@@ -23,15 +23,15 @@ public class APIController {
 		return ("login");
 	}
 
-//	@RequestMapping("/logout")
-//	public String logout() {
-//		return ("login?logout");
-//	}
-
 	@RequestMapping("/logout")
-	public String logout(Model model) {
-		model.addAttribute("logout", true);
-		return ("login");
+	public String logout() {
+		return ("logout");
 	}
+
+//	@RequestMapping("/logout")
+//	public String logout(Model model) {
+//		model.addAttribute("logout", true);
+//		return ("login");
+//	}
 	
 }
