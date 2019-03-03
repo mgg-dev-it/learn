@@ -10,9 +10,15 @@
 
 		<header class="w3-container w3-mgg-theme-header w3-top" id="id-header">
 			 <div class="w3-bar w3-mgg-theme-header">
-				  <a href="/index" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Home</a>
-				  <a href="/login" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="!isAuthenticated()">Login</a>
-				  <a href="/logout" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="isAuthenticated()">Logout</a>
+				<a href="/index" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Home</a>
+				<a href="/login" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="!isAuthenticated()">Login</a>
+				<a href="/logout" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="isAuthenticated()">Logout</a>
+				<div sec:authorize="isAuthenticated()">
+					<span class="w3-bar-item w3-text-indigo w3-right">
+						<span>Bejelentkezve: </span>
+						<span sec:authentication="principal.username">xy</span>
+					</span>
+				</div>
 			</div>
 		</header>
 		

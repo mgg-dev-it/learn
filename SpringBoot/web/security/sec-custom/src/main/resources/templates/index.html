@@ -13,14 +13,14 @@
 
 		<div th:replace="~{header :: header}"></div>
 
-		<div>Security Custom index page</div>
+<!-- 		<div>Security Custom index page</div> -->
 	
-		<div sec:authorize="!isAuthenticated()">
-			<a href="/login">login</a>
-		</div>
-		<div sec:authorize="isAuthenticated()">
-			<a href="/logout">logout</a>
-		</div>
+<!-- 		<div sec:authorize="!isAuthenticated()"> -->
+<!-- 			<a href="/login">login</a> -->
+<!-- 		</div> -->
+<!-- 		<div sec:authorize="isAuthenticated()"> -->
+<!-- 			<a href="/logout">logout</a> -->
+<!-- 		</div> -->
 	
 		<div sec:authorize="isAuthenticated()">This content is only shown to authenticated users.</div>
 		<div sec:authorize="hasRole('ROLE_ADMIN')">This content is only	shown to administrators.</div>
