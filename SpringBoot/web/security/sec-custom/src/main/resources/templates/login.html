@@ -13,39 +13,63 @@
 
 		<div th:replace="~{header :: header}"></div>
 
-		<div>Security Custom login page</div>
 
-
-		<div sec:authorize="!isAuthenticated()">
-			<a href="/login">login</a>
-		</div>
-		<div sec:authorize="isAuthenticated()">
-			<a href="/logout">logout</a>
-		</div>
+<!-- <div class="w3-container"> -->
+<!-- 		<div>Security Custom login page</div> -->
+<!-- 		<div sec:authorize="!isAuthenticated()"> -->
+<!-- 			<a href="/login">login</a> -->
+<!-- 		</div> -->
+<!-- 		<div sec:authorize="isAuthenticated()"> -->
+<!-- 			<a href="/logout">logout</a> -->
+<!-- 		</div> -->
 	
-		<div sec:authorize="isAuthenticated()">This content is only shown to authenticated users.</div>
-		<div sec:authorize="hasRole('ROLE_ADMIN')">This content is only	shown to administrators.</div>
-		<div sec:authorize="hasRole('ROLE_USER')">This content is only shown to users.</div>
+<!-- 		<div sec:authorize="isAuthenticated()">This content is only shown to authenticated users.</div> -->
+<!-- 		<div sec:authorize="hasRole('ROLE_ADMIN')">This content is only	shown to administrators.</div> -->
+<!-- 		<div sec:authorize="hasRole('ROLE_USER')">This content is only shown to users.</div> -->
 	
-		<div sec:authorize="isAuthenticated()">
-			<div>Logged user: <span sec:authentication="name">Bob</span></div>
-			<div>Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></div>
-			<div>Username: <span sec:authentication="principal.username">Bob</span></div>
+<!-- 		<div sec:authorize="isAuthenticated()"> -->
+<!-- 			<div>Logged user: <span sec:authentication="name">Bob</span></div> -->
+<!-- 			<div>Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span></div> -->
+<!-- 			<div>Username: <span sec:authentication="principal.username">Bob</span></div> -->
+<!-- 		</div> -->
+<!-- </div> -->
+		
+<div class="w3-container">
+<!-- 		<div class="w3-container w3-card-4"> -->
+<!-- 			<div class="w3-container"> -->
+<!-- 				<h2>Kérem jelentkezzen be</h2> -->
+<!-- 			</div> -->
+			<form name="login" th:action="@{/login}" method="post" class="w3-container w3-card-4 w3-display-middle">
+				<h2 class="form-signin-heading">Kérem jelentkezzen be</h2>
+				<div id="err" th:if="${param.error}" class="w3-panel w3-pale-red"><p>Hibás felhasználónév és/vagy jelszó</p></div>
+	
+				<div th:if="${param.logout}" class="w3-panel w3-pale-green"><p>Sikeresen kijelentkezés</p></div>
+	
+				<p>
+<!-- 				<label for="username">Felhasználónév</label>  -->
+				    <input type="text" id="username" name="username" class="w3-input" placeholder="Felhasználónév" required="true" /> 
+				   </p>
+				   <p> 
+<!-- 				<label for="password">Jelszó</label>  -->
+				    <input type="password" id="password" name="password" class="w3-input" placeholder="Jelszó" required="true" />
+				    </p>
+				<p><button class="w3-btn w3-blue" type="submit">Bejelentkezés</button></p>
+			</form>
+<!-- 		</div> -->
 		</div>
 
+<!-- <form name="login" th:action="@{/login}" method="post" class="form-signin"> -->
+<!-- 			<h2 class="form-signin-heading">Kérlek jelentkezz be</h2> -->
+<!-- 			<div id="err" th:if="${param.error}" class="alert alert-danger">Hibás felhasználói név és jelszó</div> -->
 
-<form name="login" th:action="@{/login}" method="post" class="form-signin">
-			<h2 class="form-signin-heading">Kérlek jelentkezz be</h2>
-			<div id="err" th:if="${param.error}" class="alert alert-danger">Hibás felhasználói név és jelszó</div>
+<!-- 			<div th:if="${param.logout}" class="alert alert-success">Sikeresen kijelentkeztél</div> -->
 
-			<div th:if="${param.logout}" class="alert alert-success">Sikeresen kijelentkeztél</div>
-
-			<label for="username" class="sr-only">Felhasználói név</label> 
-			    <input type="text" id="username" name="username" class="form-control" placeholder="Felhasználói név" required="true" /> 
-			<label for="password" class="sr-only">Jelszó</label> 
-			    <input type="password" id="password" name="password" class="form-control" placeholder="Jelszó" required="true" />
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Bejelentkezés</button>
-	</form>
+<!-- 			<label for="username" class="sr-only">Felhasználói név</label>  -->
+<!-- 			    <input type="text" id="username" name="username" class="form-control" placeholder="Felhasználói név" required="true" />  -->
+<!-- 			<label for="password" class="sr-only">Jelszó</label>  -->
+<!-- 			    <input type="password" id="password" name="password" class="form-control" placeholder="Jelszó" required="true" /> -->
+<!-- 			<button class="btn btn-lg btn-primary btn-block" type="submit">Bejelentkezés</button> -->
+<!-- 	</form> -->
 		
 		<div th:replace="~{footer :: footer}"></div>
 
