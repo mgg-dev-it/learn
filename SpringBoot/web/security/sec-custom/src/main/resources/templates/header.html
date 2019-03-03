@@ -9,7 +9,10 @@
 	<div th:fragment="header" th:remove="tag">
 
 		<header class="w3-container w3-mgg-theme-header w3-top" id="id-header">
-			 <div class="w3-bar w3-mgg-theme-header">
+<!-- 			 <div class="w3-bar w3-mgg-theme-header"><div class="w3-bar-item w3-display-middle">The Ultimate App</div></div> -->
+<!-- 			 <div class="w3-bar w3-mgg-theme-header w3-display-middle">The Ultimate App</div> -->
+			 
+			<div class="w3-bar w3-mgg-theme-header">
 				<a href="/index" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Home</a>
 				<a href="/login" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="!isAuthenticated()">Login</a>
 				<a href="/logout" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="isAuthenticated()">Logout</a>
@@ -20,6 +23,7 @@
 					</span>
 				</div>
 			</div>
+			
 		</header>
 		
 		<div th:replace="~{headerplaceholder :: headerplaceholder}"></div>
