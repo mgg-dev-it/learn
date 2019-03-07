@@ -42,6 +42,7 @@ public class UserDetailsImpl implements UserDetails {
 		//System.out.println("email: ");
 		//System.out.println(user.getEmail() );
 		return user.getEmail();
+		//return user.getFullName();
 	}
 
 	@Override

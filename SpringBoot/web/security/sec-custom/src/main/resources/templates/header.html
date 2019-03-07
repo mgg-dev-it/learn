@@ -17,7 +17,8 @@
 				<div class="w3-bar w3-mgg-theme-header">
 					<a href="/index" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue">Home</a>
 					<a href="/login" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="!isAuthenticated()">Login</a>
-					<a href="/logout" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="isAuthenticated()">Logout</a>
+<!-- 					<a href="/logout" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="isAuthenticated()">Logout</a> -->
+					<a onclick="doHeaderLogout();" class="w3-bar-item w3-button w3-text-indigo w3-hover-blue" sec:authorize="isAuthenticated()">Logout</a>
 					<div sec:authorize="isAuthenticated()">
 						<span class="w3-bar-item w3-text-indigo w3-right">
 							<span>Bejelentkezve: </span>
@@ -28,6 +29,14 @@
 			</div>
 			
 		</header>
+		
+		<script>
+		function doHeaderLogout() {
+			document.getElementById("id-headerplaceholder-form-logout").submit();
+		};
+		</script>
+		
+		<form name="logout" th:action="@{/logout}" method="post" id="id-headerplaceholder-form-logout"></form>
 		
 		<div th:replace="~{headerplaceholder :: headerplaceholder}"></div>
 
