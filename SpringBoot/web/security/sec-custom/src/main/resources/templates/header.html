@@ -31,9 +31,9 @@
 		</header>
 		
 		<script>
-		function doHeaderLogout() {
-			document.getElementById("id-headerplaceholder-form-logout").submit();
-		};
+			function doHeaderLogout() {
+				document.getElementById("id-headerplaceholder-form-logout").submit();
+			};
 		</script>
 		
 		<form name="logout" th:action="@{/logout}" method="post" id="id-headerplaceholder-form-logout"></form>
