@@ -3,26 +3,6 @@ package mggdevit.seccustom;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/*
- * SanFranciscobolJottem
- * 
- * Spring Boot II. 17. Spring Security - DB Authentication
- * 
- */
-
-/*
- * in order to use h2 console during the development phase:
- * 
- * https://springframework.guru/using-the-h2-database-console-in-spring-boot-with-spring-security/
- * 
- * https://www.logicbig.com/tutorials/spring-framework/spring-boot/jdbc-security-with-h2-console.html
- * 
- * http://www.virtual7.de/blog/2018/04/spring-security-authentication-using-locally-stored-h2-database/
- * 
- * https://grokonez.com/spring-framework/spring-security/configure-spring-security-access-h2-database-console-spring-boot-project
- * 
- */
-
 @SpringBootApplication
 public class SecCustomApplication {
 
