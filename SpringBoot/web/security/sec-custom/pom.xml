@@ -12,7 +12,7 @@
 	<groupId>mgg-dev-it</groupId>
 	<artifactId>sec-custom</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sec-db-auth</name>
+	<name>sec-custom</name>
 	<description>Spring Boot Custom Security</description>
 
 	<properties>

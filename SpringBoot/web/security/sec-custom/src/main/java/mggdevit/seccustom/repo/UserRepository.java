@@ -1,8 +1,8 @@
-package mggdevit.secdbauth.repo;
+package mggdevit.seccustom.repo;
 
 import org.springframework.data.repository.CrudRepository;
 
-import mggdevit.secdbauth.entity.User;
+import mggdevit.seccustom.entity.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 

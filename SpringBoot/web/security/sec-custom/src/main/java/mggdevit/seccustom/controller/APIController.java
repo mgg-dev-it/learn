@@ -1,4 +1,4 @@
-package mggdevit.secdbauth.controller;
+package mggdevit.seccustom.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

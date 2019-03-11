@@ -1,4 +1,4 @@
-package mggdevit.secdbauth.service;
+package mggdevit.seccustom.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import mggdevit.secdbauth.entity.User;
-import mggdevit.secdbauth.repo.UserRepository;
+import mggdevit.seccustom.entity.User;
+import mggdevit.seccustom.repo.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService  {

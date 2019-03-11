@@ -1,6 +1,6 @@
-package mggdevit.secdbauth.service;
+package mggdevit.seccustom.service;
 
-import mggdevit.secdbauth.entity.User;
+import mggdevit.seccustom.entity.User;
 
 public interface UserService {
 

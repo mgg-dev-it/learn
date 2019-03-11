@@ -1,4 +1,4 @@
-package mggdevit.secdbauth;
+package mggdevit.seccustom;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,10 +24,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
-public class SecDbAuthApplication {
+public class SecCustomApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SecDbAuthApplication.class, args);
+		SpringApplication.run(SecCustomApplication.class, args);
 	}
 
 }

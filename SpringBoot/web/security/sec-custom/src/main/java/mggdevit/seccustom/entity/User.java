@@ -1,4 +1,4 @@
-package mggdevit.secdbauth.entity;
+package mggdevit.seccustom.entity;
 
 import java.util.HashSet;
 import java.util.Set;

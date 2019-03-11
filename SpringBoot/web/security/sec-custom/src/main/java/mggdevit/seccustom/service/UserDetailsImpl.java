@@ -1,15 +1,16 @@
-package mggdevit.secdbauth.service;
+package mggdevit.seccustom.service;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.security.core.userdetails.UserDetails;
+
+import mggdevit.seccustom.entity.Role;
+import mggdevit.seccustom.entity.User;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
-import mggdevit.secdbauth.entity.Role;
-import mggdevit.secdbauth.entity.User;
 
 public class UserDetailsImpl implements UserDetails {
 

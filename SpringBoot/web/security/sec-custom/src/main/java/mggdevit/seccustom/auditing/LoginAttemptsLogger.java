@@ -1,4 +1,4 @@
-package mggdevit.secdbauth.auditing;
+package mggdevit.seccustom.auditing;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

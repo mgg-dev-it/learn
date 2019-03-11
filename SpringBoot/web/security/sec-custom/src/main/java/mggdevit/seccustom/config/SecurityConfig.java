@@ -1,4 +1,4 @@
-package mggdevit.secdbauth.config;
+package mggdevit.seccustom.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
