@@ -48,7 +48,7 @@ public class RestH2JpaSecApplication {
 			urepository.save(new User("user", "$2a$04$1.YhMIgNX/8TkCKGFUONWO1waedKhQ5KrnB30fl0Q01QKqmzLf.Zi", "USER")); // username: user password: user
 			urepository.save(new User("admin", "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG", "ADMIN")); // username: admin password: admin
 
-			System.out.println("1234 : " + new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder().encode("1234"));
+//			System.out.println("1234 : " + new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder().encode("1234"));
 //			System.out.println("user : " + new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder().encode("user"));
 //			System.out.println("admin : " + new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder().encode("admin"));
 		};
