@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Security Custom login</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" th:href="@{/css/mgg.css}" />
+	</head>
+
+	<body class="w3-mgg-theme-body">
+
+		<div th:replace="~{header :: header}"></div>
+
+		<div class="w3-container">
+			<form name="login" th:action="@{/login}" method="post" class="w3-container w3-card-4 w3-display-middle">
+				<h2 class="form-signin-heading">Kérem jelentkezzen be</h2>
+				<div id="err" th:if="${param.error}" class="w3-panel w3-pale-red"><p>Hibás felhasználónév és/vagy jelszó</p></div>
+	
+				<div th:if="${param.logout}" class="w3-panel w3-pale-green"><p>Sikeres kijelentkezés</p></div>
+	
+				<p>
+<!-- 				<label for="username">Felhasználónév</label>  -->
+				    <input type="text" id="username" name="username" class="w3-input" placeholder="Felhasználónév" required="true"  autofocus /> 
+				   </p>
+				   <p> 
+<!-- 				<label for="password">Jelszó</label>  -->
+				    <input type="password" id="password" name="password" class="w3-input" placeholder="Jelszó" required="true" />
+				    </p>
+				<p><button class="w3-btn w3-blue" type="submit">Bejelentkezés</button></p>
+			</form>
+		</div>
+
+		<div th:replace="~{footer :: footer}"></div>
+
+	</body>
+
+</html>
