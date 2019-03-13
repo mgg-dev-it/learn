@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>mgg-dev-it</groupId>
-	<artifactId>sec-custom</artifactId>
+	<artifactId>sec-custom-jdbc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sec-custom</name>
+	<name>sec-custom-jdbc</name>
 	<description>Spring Boot Custom Security</description>
 
 	<properties>
