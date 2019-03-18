@@ -12,7 +12,7 @@ import java.util.Date;
 import static java.util.Collections.emptyList;
 
 public class AuthenticationService {
-  static final long EXPIRATIONTIME = 864_000_00; // 1 day in milliseconds
+  static final long EXPIRATIONTIME = 86_400_000; // 1 day in milliseconds
   static final String SIGNINGKEY = "SecretKey";
   static final String PREFIX = "Bearer";
 

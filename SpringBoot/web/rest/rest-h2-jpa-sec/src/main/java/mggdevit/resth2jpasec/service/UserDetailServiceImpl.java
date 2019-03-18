@@ -1,4 +1,4 @@
-package  mggdevit.resth2jpasec.service;
+package mggdevit.resth2jpasec.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -10,21 +10,18 @@ import org.springframework.stereotype.Service;
 import mggdevit.resth2jpasec.domain.User;
 import mggdevit.resth2jpasec.domain.UserRepository;
 
-
-
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
-  @Autowired
-  private UserRepository repository;
 
+	@Autowired
+	private UserRepository repository;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
-    { 
-      User currentUser = repository.findByUsername(username);
-        UserDetails user = new org.springframework.security.core.userdetails.User(username, currentUser.getPassword()
-        , true, true, true, true, AuthorityUtils.createAuthorityList(currentUser.getRole()));
-        return user;
-    }
-    
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User currentUser = repository.findByUsername(username);
+		UserDetails user = new org.springframework.security.core.userdetails.User(username, currentUser.getPassword(),
+				true, true, true, true, AuthorityUtils.createAuthorityList(currentUser.getRole()));
+		return user;
+	}
+
 }
