@@ -13,6 +13,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 //import mggdevit.learnjavacollection.LearnJavaCollection;
 
@@ -26,31 +27,29 @@ public class LearnCipher {
 		System.out.println("");
 		System.out.println("Learning Cipher");
 		System.out.println("");
-		String s0 = "Java";
+		String s0 = "Java Cryptography";
 		System.out.println(s0);
-		try {
-			SecretKey secretKey = KeyGenerator.getInstance("AES").generateKey();
-			String s = encrypt(s0, secretKey);
-			if (s != null) {
-				System.out.println(s);
-				String s2 = decrypt(s, secretKey);
-				if (s2 != null) {
-					System.out.println(s2);
-				}
+		// SecretKey secretKey = KeyGenerator.getInstance("AES").generateKey();
+		String s = encrypt(s0);
+		if (s != null) {
+			System.out.println(s);
+			String s2 = decrypt(s);
+			if (s2 != null) {
+				System.out.println(s2);
 			}
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
 		}
 	}
 
-	private static String encrypt(String sContent, SecretKey secretKey) {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        IvParameterSpec ivspec = new IvParameterSpec(iv);
+	private static String encrypt(String sContent) {
+		byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		IvParameterSpec ivspec = new IvParameterSpec(iv);
+		String sKey = "aesEncryptionKey";
 		try {
+			SecretKeySpec skeySpec = new SecretKeySpec(sKey.getBytes("UTF-8"), "AES");
 //			SecretKey secretKey = KeyGenerator.getInstance("AES").generateKey();
 			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-			cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec);
-//			byte[] iv = cipher.getIV();
+			cipher.init(Cipher.ENCRYPT_MODE, skeySpec, ivspec);
+//			byte[] iv = cipher.sgetIV();
 			return (Base64.getEncoder().encodeToString(cipher.doFinal(sContent.getBytes("UTF-8"))));
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
@@ -70,14 +69,16 @@ public class LearnCipher {
 		return (null);
 	}
 
-	private static String decrypt(String sContent, SecretKey secretKey) {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        IvParameterSpec ivspec = new IvParameterSpec(iv);		
+	private static String decrypt(String sContent) {
+		byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		IvParameterSpec ivspec = new IvParameterSpec(iv);
 		byte[] b = Base64.getDecoder().decode(sContent);
+		String sKey = "aesEncryptionKey";
 		try {
+			SecretKeySpec skeySpec = new SecretKeySpec(sKey.getBytes("UTF-8"), "AES");
 //			SecretKey secretKey = KeyGenerator.getInstance("AES").generateKey();
 			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-			cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec);
+			cipher.init(Cipher.DECRYPT_MODE, skeySpec, ivspec);
 //			byte[] iv = cipher.getIV();
 			return (new String(cipher.doFinal(b), "UTF-8"));
 		} catch (NoSuchAlgorithmException e) {
