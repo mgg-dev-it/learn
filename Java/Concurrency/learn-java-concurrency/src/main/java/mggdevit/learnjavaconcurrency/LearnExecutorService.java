@@ -23,22 +23,17 @@ public class LearnExecutorService {
 
 		Set<Callable<String>> callables = new HashSet<Callable<String>>();
 
-		callables.add(new Callable<String>() {
-			public String call() throws Exception {
-				return "Task 1";
-			}
-		});
-		callables.add(new Callable<String>() {
-			public String call() throws Exception {
-				return "Task 2";
-			}
-		});
-		callables.add(new Callable<String>() {
-			public String call() throws Exception {
-				return "Task 3";
-			}
-		});
-
+		callables.add(createCallable(1));
+		callables.add(createCallable(2));
+		callables.add(createCallable(3));
+		callables.add(createCallable(4));
+		callables.add(createCallable(5));
+		callables.add(createCallable(6));
+		callables.add(createCallable(7));
+		callables.add(createCallable(8));
+		callables.add(createCallable(9));
+		callables.add(createCallable(10));
+		
 		List<Future<String>> futures;
 		try {
 			futures = executorService.invokeAll(callables);
@@ -52,6 +47,14 @@ public class LearnExecutorService {
 		}
 
 		executorService.shutdown();
+	}
+
+	private Callable<String> createCallable(final int i) {
+		return (new Callable<String>() {
+			public String call() throws Exception {
+				return "Task " + i;
+			}
+		});
 	}
 
 }
