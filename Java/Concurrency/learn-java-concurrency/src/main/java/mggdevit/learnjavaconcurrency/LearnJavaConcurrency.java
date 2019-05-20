@@ -12,5 +12,7 @@ public class LearnJavaConcurrency {
 		System.out.println("");
 		new LearnThread().learn();
 		System.out.println("");
+		new LearnExecutorService().learn();
+		System.out.println("");
 	}
 }
