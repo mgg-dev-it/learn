@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/guide/list.html -->
+<html>
+<head>
+  <title>List Rendering - v-for - v-bind:key</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <a href="https://vuejs.org/v2/guide/list.html#Maintaining-State">https://vuejs.org/v2/guide/list.html#Maintaining-State</a>
+  <h3>List Rendering - v-for - v-bind:key</h3>
+	<ul id="v-for-object">
+		<div v-for="(item, index) in items" v-bind:key="item.id">
+	    	{{ index }}. {{ item.message }} ( {{ item.id }} )
+		</div>
+	</ul>
+
+	<script>
+	new Vue({
+	  el: '#v-for-object',
+	  data: {
+	  	items: [
+	  	      { id:3, message: 'Foo' },
+	  	      { id:6, message: 'Bar' }
+	    ]
+	  }
+	})
+	</script>
+
+</body>
+</html>
