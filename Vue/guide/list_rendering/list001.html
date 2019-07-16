@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/guide/list.html -->
+<html>
+<head>
+  <title>List Rendering - v-for</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <h3>List Rendering - v-for</h3>
+	<ul id="example-1">
+	  <li v-for="item in items">
+	    {{ item.message }}
+	  </li>
+	</ul>
+
+  <script>
+	var example1 = new Vue({
+	  el: '#example-1',
+	  data: {
+	    items: [
+	      { message: 'Foo' },
+	      { message: 'Bar' }
+	    ]
+	  }
+	})
+  </script>
+</body>
+</html>

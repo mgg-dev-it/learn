@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/guide/list.html -->
+<html>
+<head>
+  <title>List Rendering - v-for - with an Object</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <h3>List Rendering - v-for - with an Object</h3>
+	<ul id="v-for-object" class="demo">
+	  <li v-for="(value, name) in object">
+	    {{ name }}: {{ value }}
+	  </li>
+	</ul>
+
+  <script>
+	new Vue({
+	  el: '#v-for-object',
+	  data: {
+	    object: {
+	      title: 'How to do lists in Vue',
+	      author: 'Jane Doe',
+	      publishedAt: '2016-04-10'
+	    }
+	  }
+	})
+  </script>
+</body>
+</html>
