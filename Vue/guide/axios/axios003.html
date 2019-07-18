@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html -->
+<html>
+<head>
+  <title>Axios - CoinDesk</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h3>Axios - CoinDesk</h3>
+	<div id="app">
+	  <h1>Bitcoin Price Index</h1>
+	  <div
+	    v-for="currency in info"
+	    class="currency"
+	  >
+	    {{ currency.description }}:
+	    <span class="lighten">
+	      <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
+	    </span>
+	  </div>
+	</div>
+
+  <script>
+	var v = new Vue({
+	  el: '#app',
+	  data () {
+	    return {
+	      info: 'Loading ...'
+	    }
+	  },
+	  filters: {
+		currencydecimal (value) {
+		  return value.toFixed(2)
+	    }
+	  },
+	  mounted () {
+	    axios
+	      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+	      .then(response => (this.info = response.data.bpi))
+	  }
+	})
+  </script>
+</body>
+</html>
