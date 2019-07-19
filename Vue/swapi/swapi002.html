@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html -->
+<html>
+<head>
+  <title>Star Wars API</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h3>Star Wars API</h3>
+	<div id="app">
+	  {{ info }}
+	</div>
+
+  <script>
+	var v = new Vue({
+	  el: '#app',
+	  data () {
+	    return {
+	      info: 'Loading ...'
+	    }
+	  },
+	  mounted () {
+	    axios
+	      .get('https://swapi.co/api/films/')
+	      .then(response => (this.info = response.data.results))
+	  }
+	})
+  </script>
+</body>
+</html>

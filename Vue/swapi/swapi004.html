@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html -->
+<html>
+<head>
+  <title>Star Wars API</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h3>Star Wars API</h3>
+	<div id="app">
+	  <h1>Film list</h1>
+
+	  <section v-if="errored">
+	    <p>We're sorry, we're not able to retrieve this information at the moment, please try back later</p>
+	  </section>
+
+	  <section v-else>
+	    <div v-if="loading">Loading...</div>
+
+	    <div
+	      v-else
+	      v-for="title in info"
+	      class="currency"
+	    >
+	      <span class="lighten">
+	        <span v-html="title"></span>
+	      </span>
+	    </div>
+
+	  </section>
+	</div>
+
+  <script>
+	var v = new Vue({
+	  el: '#app',
+	  data () {
+		return {
+		  info: null,
+		  loading: true,
+		  errored: false
+		}
+	  },
+	  filters: {
+		currencydecimal (value) {
+		  return value.toFixed(2)
+		}
+	  },
+	  mounted () {
+		axios
+		  .get('https://swapi.co/api/films/')
+		  .then(response => {
+			this.info = response.data.results
+		  })
+		  .catch(error => {
+			console.log(error)
+			this.errored = true
+		  })
+		  .finally(() => this.loading = false)
+	  }
+	})
+  </script>
+</body>
+</html>
