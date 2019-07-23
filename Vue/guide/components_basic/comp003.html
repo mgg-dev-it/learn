@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/guide/components.html -->
+<html>
+<head>
+  <title>Components Basics - data Must Be a Function</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <h3>Components Basics - data Must Be a Function</h3>
+	<div id="components-demo">
+	    <button-counter></button-counter>
+	    <button-counter></button-counter>
+	    <button-counter></button-counter>
+	</div>
+
+  <script>
+	// Define a new component called button-counter
+	Vue.component('button-counter', {
+	  data: {
+  		count: 0
+	  },
+	  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+	})
+	var app = new Vue({ el: '#components-demo' })
+  </script>
+</body>
+</html>
