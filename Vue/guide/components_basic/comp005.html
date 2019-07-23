@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/guide/components.html -->
+<html>
+<head>
+  <title>Components Basics - Passing Data to Child Components in Array</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <h2>Components Basics - Passing Data to Child Components in Array</h2>
+	<div id="blog-post-demo">
+	    <blog-post
+		  v-for="post in posts"
+		  v-bind:key="post.id"
+		  v-bind:title="post.title"
+		></blog-post>
+	</div>
+
+  <script>
+	Vue.component('blog-post', {
+	    props: ['title'],
+	    template: '<h3>{{ title }}</h3>'
+	})
+	new Vue({
+	  el: '#blog-post-demo',
+	  data: {
+	    posts: [
+	      { id: 1, title: 'My journey with Vue' },
+	      { id: 2, title: 'Blogging with Vue' },
+	      { id: 3, title: 'Why Vue is so fun' }
+	    ]
+	  }
+})
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- https://vuejs.org/v2/guide/components.html -->
+<html>
+<head>
+  <title>Components Basics - Passing Data to Child Components with Props</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <h2>Components Basics - Passing Data to Child Components with Props</h2>
+	<div id="components-demo">
+	    <blog-post title="My journey with Vue"></blog-post>
+		<blog-post title="Blogging with Vue"></blog-post>
+		<blog-post title="Why Vue is so fun"></blog-post>
+	</div>
+
+  <script>
+	Vue.component('blog-post', {
+	    props: ['title'],
+	    template: '<h3>{{ title }}</h3>'
+	})
+	var app = new Vue({ el: '#components-demo' })
+  </script>
+</body>
+</html>
