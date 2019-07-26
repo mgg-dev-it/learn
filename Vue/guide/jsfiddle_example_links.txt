@@ -1,0 +1,2 @@
+
+Accessing the Parent Component Instance (google map!): https://jsfiddle.net/chrisvfritz/ttzutdxh/
