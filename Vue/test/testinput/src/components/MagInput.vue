@@ -4,6 +4,7 @@
     <input
       type="text"
       v-model="cv"
+      @blur="onBlur"
       @keydown="onKeyDown"
       @keypress="onKeyPress"
       @keyup="onKeyUp"
@@ -30,12 +31,6 @@ export default {
       prevcvd: ""
     };
   },
-  created: function() {
-    this.cvd = this.fieldDef.value;
-    if (this.fieldDef.upperCase) {
-      this.cvd = this.cvd.toUpperCase();
-    }
-  },
   computed: {
     cv: {
       get() {
@@ -46,19 +41,68 @@ export default {
         if (this.fieldDef.upperCase) {
           this.cvd = val.toUpperCase();
         }
+        if (this.cvd != this.prevcvd) {
+          this.raiseEventValueChanged();
+        }
+        this.prevcvd = this.cvd;
       }
     }
   },
+  created: function() {
+    this.cvd = this.fieldDef.value;
+    if (this.fieldDef.upperCase) {
+      this.cvd = this.cvd.toUpperCase();
+    }
+  },
   mounted: function() {
-    this.$emit("valuechanged", this.cvd, this.fieldDef.name);
-    if (this.fieldDef.focused){
+    //this.$emit("valuechanged", this.cvd, this.fieldDef.name);
+    this.raiseEventValueChanged();
+    if (this.fieldDef.focused) {
       //this.$refs[“ref-input”].setFocus();
-      console.log(this.$refs);
-      console.log(this.$refs.refinput);
+      //console.log(this.$refs);
+      //console.log(this.$refs.refinput);
       this.$refs.refinput.focus();
     }
   },
   methods: {
+    raiseEventValueChanged() {
+      this.$emit("valuechanged", this.cvd, this.fieldDef.name);
+    },
+    onBlur(event) {
+      if (this.fieldDef.typ == "date") {
+        //this.cv = "123";
+        var s = this.cv.replace(/\D/g, "");
+        var d = new Date();
+        var sYear = String(d.getFullYear());
+        var sMonth = String(d.getMonth() + 1);
+        if (sMonth.length == 1) {
+          sMonth = "0" + sMonth;
+        }
+        var sDay = String(d.getDate());
+        if (sDay.length == 1) {
+          sDay = "0" + sDay;
+        }
+        var dd = sYear + sMonth + sDay;
+        if (s.length == 1) {
+          s = "0" + s;
+        }
+        if (s.length == 3) {
+          s = "0" + s;
+        }
+        if (s.length > 0) {
+          dd = dd.substring(0, 8 - s.length) + s;
+        }
+        //s = dd;
+        //this.cv = s;
+        var sDateSeparator = "/";
+        this.cv =
+          dd.substring(0, 4) +
+          sDateSeparator +
+          dd.substring(4, 6) +
+          sDateSeparator +
+          dd.substring(6, 8);
+      }
+    },
     onKeyDown(event) {
       if (this.debug) {
         // console.log("onKeyDown "+event.target.value);
@@ -72,28 +116,19 @@ export default {
     },
     onKeyPress(event) {
       if (this.debug) {
-        //console.log("onKeyPress "+event.target.value);
         console.log("onKeyPress " + event.key);
+        console.log("selectionStart = " + this.$refs.refinput.selectionStart);
+        console.log("selectionEnd = " + this.$refs.refinput.selectionEnd);
       }
       if (
         this.fieldDef.maxLength > 0 &&
-        this.cvd.length >= this.fieldDef.maxLength
+        this.cvd.length >= this.fieldDef.maxLength &&
+        this.$refs.refinput.selectionEnd - this.$refs.refinput.selectionStart <
+          1
       ) {
-        //if (event.keyCode > 31) {
-          event.preventDefault();
-        //}
+        event.preventDefault();
       }
       if (this.fieldDef.typ == "date") {
-        // if (
-        //   event.keyCode < 48 ||
-        //   event.keyCode > 57 ||
-        //   event.altKey ||
-        //   event.ctrlKey ||
-        //   event.metaKey ||
-        //   event.shiftKey
-        // ) {
-        //   event.preventDefault();
-        // }
         if ("1234567890/.-".indexOf(event.key) < 0) {
           event.preventDefault();
         }
@@ -101,26 +136,7 @@ export default {
     },
     onKeyUp(event) {
       if (this.debug) {
-        //console.log("onKeyUp "+event.target.value);
         console.log("onKeyUp " + event.key);
-      }
-      //this.inputvalue = this.inputvalue.toUpperCase();
-      //this.$emit("valuechanged", event.target.value);
-      if (this.cvd != this.prevcvd) {
-        if (this.debug) {
-          console.log(
-            "this.cvd - this.prevcvd : " + this.cvd + " " + this.prevcvd
-          );
-        }
-        this.$emit("valuechanged", this.cvd, this.fieldDef.name);
-      }
-      this.prevcvd = this.cvd;
-    }
-  },
-  directives: {
-    uppercase: {
-      update: function(el) {
-        el.value = el.value.toUpperCase();
       }
     }
   }

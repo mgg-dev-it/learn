@@ -54,8 +54,8 @@ export default {
   },
   data() {
     return {
-      //debug: false,
-      debug: true,
+      debug: false,
+      //debug: true,
       value1: "",
       value2: "",
       value3: "",
