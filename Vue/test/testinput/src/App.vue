@@ -8,7 +8,7 @@
 
     <form class="w3-container">
       <p>
-        <label class="w3-text-blue">Test field 01:</label>
+        <label class="w3-text-blue">Test field 01: {{this.fieldDef1.typ}}</label>
         <MagInput
           msg="MagInput test1"
           :fieldDef="fieldDef1"
@@ -17,7 +17,7 @@
         ></MagInput>
       </p>
       <p>
-        <label class="w3-text-blue">Test field 02:</label>
+        <label class="w3-text-blue">Test field 02: {{this.fieldDef2.typ}}</label>
         <MagInput
           msg="MagInput test2"
           :fieldDef="fieldDef2"
@@ -26,7 +26,7 @@
         ></MagInput>
       </p>
       <p>
-        <label class="w3-text-blue">Test field 03:</label>
+        <label class="w3-text-blue">Test field 03: {{this.fieldDef3.typ}}</label>
         <MagInput
           msg="MagInput test3"
           :fieldDef="fieldDef3"
@@ -69,10 +69,10 @@ export default {
       },
       fieldDef2: {
         name: "field2",
-        typ: "",
-        value: "f1",
-        upperCase: true,
-        maxLength: 5
+        typ: "int",
+        value: "0",
+        //upperCase: true,
+        maxLength: 10
         //focused: true
       },
       fieldDef3: {

@@ -68,6 +68,22 @@ export default {
     raiseEventValueChanged() {
       this.$emit("valuechanged", this.cvd, this.fieldDef.name);
     },
+    formatInt(val) {
+      var s = this.cv.replace(/\D/g, "");
+      var l = s.length;
+      var t = 0;
+      var r = "";
+      //for (var i = l; i--; i > 0) {
+      for (var i = l; i > 0; i--) {
+        r = s.substring(i - 1, i) + r;
+        ++t;
+        if (t == 3) {
+          r = " " + r;
+          t = 0;
+        }
+      }
+      return r;
+    },
     onBlur(event) {
       if (this.fieldDef.typ == "date") {
         //this.cv = "123";
@@ -102,6 +118,9 @@ export default {
           sDateSeparator +
           dd.substring(6, 8);
       }
+      if (this.fieldDef.typ == "int") {
+        this.cv = this.formatInt(this.cv);
+      }
     },
     onKeyDown(event) {
       if (this.debug) {
@@ -132,6 +151,12 @@ export default {
         if ("1234567890/.-".indexOf(event.key) < 0) {
           event.preventDefault();
         }
+      }
+      if (this.fieldDef.typ == "int") {
+        if ("1234567890".indexOf(event.key) < 0) {
+          event.preventDefault();
+        }
+        //this.cv = this.formatInt(this.cv);
       }
     },
     onKeyUp(event) {
