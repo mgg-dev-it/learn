@@ -8,9 +8,11 @@
       @keydown="onKeyDown"
       @keypress="onKeyPress"
       @keyup="onKeyUp"
+      @input="onInput"
       placeholder="type here"
       class="w3-input w3-border w3-round-large"
       ref="refinput"
+      :inputmode="inputMode"
     />
     <!-- <p>Input value is: {{ cv }}</p> -->
   </div>
@@ -28,7 +30,8 @@ export default {
     return {
       inputvalue: "",
       cvd: "",
-      prevcvd: ""
+      prevcvd: "",
+      inputMode: ""
     };
   },
   computed: {
@@ -48,7 +51,11 @@ export default {
       }
     }
   },
+  beforeCreate() {},
   created: function() {
+    if (this.fieldDef.type == "date" || this.fieldDef.type == "int") {
+      this.inputMode = "decimal";
+    }
     this.cvd = this.fieldDef.value;
     if (this.fieldDef.upperCase) {
       this.cvd = this.cvd.toUpperCase();
@@ -84,8 +91,22 @@ export default {
       }
       return r;
     },
+    onInput(event) {
+      if (this.debug) {
+        console.log("onInput data " + event.data);
+        console.log("onInput inputType " + event.inputType);
+        console.log("onInput isComposing " + event.isComposing);
+      }
+    },
     onBlur(event) {
-      if (this.fieldDef.typ == "date") {
+      //because of IME composition mode ...
+      if (
+        this.fieldDef.maxLength > 0 &&
+        this.cvd.length >= this.fieldDef.maxLength
+      ) {
+        this.cv = this.cv.substring(0, this.fieldDef.maxLength);
+      }
+      if (this.fieldDef.type == "date") {
         //this.cv = "123";
         var s = this.cv.replace(/\D/g, "");
         var d = new Date();
@@ -118,7 +139,7 @@ export default {
           sDateSeparator +
           dd.substring(6, 8);
       }
-      if (this.fieldDef.typ == "int") {
+      if (this.fieldDef.type == "int") {
         this.cv = this.formatInt(this.cv);
       }
     },
@@ -147,12 +168,12 @@ export default {
       ) {
         event.preventDefault();
       }
-      if (this.fieldDef.typ == "date") {
+      if (this.fieldDef.type == "date") {
         if ("1234567890/.-".indexOf(event.key) < 0) {
           event.preventDefault();
         }
       }
-      if (this.fieldDef.typ == "int") {
+      if (this.fieldDef.type == "int") {
         if ("1234567890".indexOf(event.key) < 0) {
           event.preventDefault();
         }
