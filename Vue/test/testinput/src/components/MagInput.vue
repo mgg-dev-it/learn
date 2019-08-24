@@ -19,7 +19,11 @@
 </template>
 
 <script>
+//import Person from "@/utils/test.js";
+import { amixin } from '@/amixin.js';
+
 export default {
+  mixins: [amixin],
   name: "MagInput",
   props: {
     //msg: String,
@@ -31,7 +35,8 @@ export default {
       inputvalue: "",
       cvd: "",
       prevcvd: "",
-      inputMode: ""
+      inputMode: "",
+      person: this.Person
     };
   },
   computed: {
@@ -69,14 +74,23 @@ export default {
       //console.log(this.$refs);
       //console.log(this.$refs.refinput);
       this.$refs.refinput.focus();
+      //this.doSomething();
     }
+    // this.person = new this.Person("first", "last", 99, "blue");
+    // console.log(this.person.firstName);
+    // console.log(this.person.lastName);
+    // console.log(this.person.age);
+    // console.log(this.person.eyeColor);
+    // console.log(this.person.nationality);
+    // console.log(this.person.name());
   },
   methods: {
     raiseEventValueChanged() {
       this.$emit("valuechanged", this.cvd, this.fieldDef.name);
     },
     formatInt(val) {
-      var s = this.cv.replace(/\D/g, "");
+      //var s = this.cv.replace(/\D/g, "");
+      var s = val.replace(/\D/g, "");
       var l = s.length;
       var t = 0;
       var r = "";
