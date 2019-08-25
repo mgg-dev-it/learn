@@ -31,15 +31,15 @@
         </div>-->
         <!-- </div>
         <div class="w3-row">-->
-        <div class="w3-col w3-container m4 l3 w3-red">
+        <div class="w3-col w3-container m4 l3 w3-light-blue">
           <label class="w3-text-blue">Test field 001: {{this.f1.typ}}</label>
           <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
         </div>
-        <div class="w3-col w3-container m4 l3 w3-red">
+        <div class="w3-col w3-container m4 l3 w3-light-blue">
           <label class="w3-text-blue">Test field 002: {{this.f2.typ}}</label>
           <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
         </div>
-        <div class="w3-col w3-container m4 l3 w3-red">
+        <div class="w3-col w3-container m4 l3 w3-light-blue">
           <label class="w3-text-blue">Test field 003: {{this.f3.typ}}</label>
           <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
         </div>
@@ -77,13 +77,13 @@
         </div>
       </div>
       <div class="w3-row">
-        <div class="w3-col w3-container m4 l3 w3-red">
+        <div class="w3-col w3-container m4 l3 w3-light-blue">
           <p>Value of test field 001: {{f1.value}}</p>
         </div>
-        <div class="w3-col w3-container m4 l3 w3-red">
+        <div class="w3-col w3-container m4 l3 w3-light-blue">
           <p>Value of test field 002: {{f2.value}}</p>
         </div>
-        <div class="w3-col w3-container m4 l3 w3-red">
+        <div class="w3-col w3-container m4 l3 w3-light-blue">
           <p>Value of test field 003: {{f3.value}}</p>
         </div>
         <div class="w3-col w3-container m4 l3 w3-aqua">
