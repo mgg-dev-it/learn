@@ -31,15 +31,22 @@
         </div>-->
         <!-- </div>
         <div class="w3-row">-->
+        <div class="w3-col w3-container m4 l3 w3-red">
+          <label class="w3-text-blue">Test field 001: {{this.f1.typ}}</label>
+          <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+        </div>
+        <div class="w3-col w3-container m4 l3 w3-red">
+          <label class="w3-text-blue">Test field 002: {{this.f2.typ}}</label>
+          <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+        </div>
+        <div class="w3-col w3-container m4 l3 w3-red">
+          <label class="w3-text-blue">Test field 003: {{this.f3.typ}}</label>
+          <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+        </div>
         <div class="w3-col w3-container m4 l3 w3-aqua">
           <!-- <p> -->
           <label class="w3-text-blue">Test field 01: {{this.fieldDef1.typ}}</label>
-          <MagInput
-            msg="MagInput test1"
-            :fieldDef="fieldDef1"
-            @valuechanged="onValueChanged"
-            :debug="debug"
-          ></MagInput>
+          <MagInput :fieldDef="fieldDef1" @valuechanged="onValueChanged" :debug="debug"></MagInput>
           <!-- </p> -->
         </div>
         <!-- </div>
@@ -70,6 +77,15 @@
         </div>
       </div>
       <div class="w3-row">
+        <div class="w3-col w3-container m4 l3 w3-red">
+          <p>Value of test field 001: {{f1.value}}</p>
+        </div>
+        <div class="w3-col w3-container m4 l3 w3-red">
+          <p>Value of test field 002: {{f2.value}}</p>
+        </div>
+        <div class="w3-col w3-container m4 l3 w3-red">
+          <p>Value of test field 003: {{f3.value}}</p>
+        </div>
         <div class="w3-col w3-container m4 l3 w3-aqua">
           <p>Value of test field 01: {{fieldDef1.value}}</p>
         </div>
@@ -85,16 +101,30 @@
 </template>
 
 <script>
-//import HelloWorld from "./components/HelloWorld.vue";
 import MagInput from "./components/MagInput.vue";
+import MagInput2 from "./components/MagInput2.vue";
 import "@/assets/w3.css";
+
+import { dbmixin } from "@/mixins/dbmixin.js";
+
+// function FieldDef(name, type, value) {
+//             this.name = name;
+//             this.type = type;
+//             this.value = value;
+//             this.upperCase = false;
+//             this.maxLength = -1;
+//             this.focused = false;
+//         }
+// var f1 = new FieldDef("field1", "text", "");
+
 var mapFields = new Map();
 
 export default {
+  mixins: [dbmixin],
   name: "app",
   components: {
-    //HelloWorld,
-    MagInput
+    MagInput,
+    MagInput2
   },
   data() {
     return {
@@ -103,6 +133,10 @@ export default {
       // value1: "",
       // value2: "",
       // value3: "",
+      person: this.Person,
+      f1: this.FieldDef,
+      f2: this.FieldDef,
+      f3: this.FieldDef,
       fieldDef1: {
         name: "field1",
         type: "text",
@@ -128,11 +162,28 @@ export default {
       }
     };
   },
-  beforeCreate() {},
-  created() {
+  beforeCreate: function() {
+    //console.log("App beforeCreate");
+  },
+  created: function() {
+    //console.log("App created");
     mapFields.set(this.fieldDef1.name, this.fieldDef1);
     mapFields.set(this.fieldDef2.name, this.fieldDef2);
     mapFields.set(this.fieldDef3.name, this.fieldDef3);
+    this.person = new this.Person("first", "last", 99, "blue");
+    this.f1 = new this.FieldDef("field01", "text", "");
+    this.f1.upperCase = true;
+    this.f1.maxLength = 5;
+    this.f1.focused = true;
+    this.f2 = new this.FieldDef("field02", "int", "");
+    this.f2.maxLength = 10;
+    this.f3 = new this.FieldDef("field03", "date", "");
+    mapFields.set(this.f1.name, this.f1);
+    mapFields.set(this.f2.name, this.f2);
+    mapFields.set(this.f3.name, this.f3);
+  },
+  mounted: function() {
+    //console.log("App mounted");
   },
   methods: {
     onValueChanged(val, name) {

@@ -1,6 +1,5 @@
 <template>
   <div id="maginputdiv">
-    <!-- <h1>{{ msg }}</h1> -->
     <input
       type="text"
       v-model="cv"
@@ -14,21 +13,17 @@
       ref="refinput"
       :inputmode="inputMode"
     />
-    <!-- <p>Input value is: {{ cv }}</p> -->
   </div>
 </template>
 
 <script>
-//import Person from "@/utils/test.js";
-import { amixin } from "@/amixin.js";
 import { dbmixin } from "@/mixins/dbmixin.js";
 
 export default {
-  mixins: [amixin, dbmixin],
-  name: "MagInput",
+  mixins: [dbmixin],
+  name: "MagInput2",
   props: {
-    //msg: String,
-    fieldDef: Object,
+    fDef: Object, //this.FieldDef,
     debug: Boolean
   },
   data() {
@@ -36,8 +31,7 @@ export default {
       inputvalue: "",
       cvd: "",
       prevcvd: "",
-      inputMode: "",
-      person: this.Person
+      inputMode: ""
     };
   },
   computed: {
@@ -47,7 +41,7 @@ export default {
       },
       set(val) {
         this.cvd = val;
-        if (this.fieldDef.upperCase) {
+        if (this.fDef.upperCase) {
           this.cvd = val.toUpperCase();
         }
         if (this.cvd != this.prevcvd) {
@@ -58,40 +52,35 @@ export default {
     }
   },
   beforeCreate() {
-    //console.log("MagInput beforeCreate");
+    //console.log("MagInput2 beforeCreate");
+    // console.log(this.cvd);
   },
   created: function() {
-    //console.log("MagInput created");
-    if (this.fieldDef.type == "date" || this.fieldDef.type == "int") {
+    //console.log("MagInput2 created");
+    // console.log(this.cvd);
+    if (this.fDef.type == "date" || this.fDef.type == "int") {
       this.inputMode = "decimal";
     }
-    this.cvd = this.fieldDef.value;
-    if (this.fieldDef.upperCase) {
+    this.cvd = this.fDef.value;
+    if (this.fDef.upperCase) {
       this.cvd = this.cvd.toUpperCase();
     }
   },
   mounted: function() {
-    //console.log("MagInput mounted");
-    //this.$emit("valuechanged", this.cvd, this.fieldDef.name);
+    //console.log("MagInput2 mounted");
+    // console.log(this.cvd);
+    //this.$emit("valuechanged", this.cvd, this.fDef.name);
     this.raiseEventValueChanged();
-    if (this.fieldDef.focused) {
+    if (this.fDef.focused) {
       //this.$refs[“ref-input”].setFocus();
       //console.log(this.$refs);
       //console.log(this.$refs.refinput);
       this.$refs.refinput.focus();
-      //this.doSomething();
     }
-    // this.person = new this.Person("first", "last", 99, "blue");
-    // console.log(this.person.firstName);
-    // console.log(this.person.lastName);
-    // console.log(this.person.age);
-    // console.log(this.person.eyeColor);
-    // console.log(this.person.nationality);
-    // console.log(this.person.name());
   },
   methods: {
     raiseEventValueChanged() {
-      this.$emit("valuechanged", this.cvd, this.fieldDef.name);
+      this.$emit("valuechanged", this.cvd, this.fDef.name);
     },
     formatInt(val) {
       //var s = this.cv.replace(/\D/g, "");
@@ -119,13 +108,10 @@ export default {
     },
     onBlur(event) {
       //because of IME composition mode ...
-      if (
-        this.fieldDef.maxLength > 0 &&
-        this.cvd.length >= this.fieldDef.maxLength
-      ) {
-        this.cv = this.cv.substring(0, this.fieldDef.maxLength);
+      if (this.fDef.maxLength > 0 && this.cvd.length >= this.fDef.maxLength) {
+        this.cv = this.cv.substring(0, this.fDef.maxLength);
       }
-      if (this.fieldDef.type == "date") {
+      if (this.fDef.type == "date") {
         //this.cv = "123";
         var s = this.cv.replace(/\D/g, "");
         var d = new Date();
@@ -158,7 +144,7 @@ export default {
           sDateSeparator +
           dd.substring(6, 8);
       }
-      if (this.fieldDef.type == "int") {
+      if (this.fDef.type == "int") {
         this.cv = this.formatInt(this.cv);
       }
     },
@@ -180,19 +166,19 @@ export default {
         console.log("selectionEnd = " + this.$refs.refinput.selectionEnd);
       }
       if (
-        this.fieldDef.maxLength > 0 &&
-        this.cvd.length >= this.fieldDef.maxLength &&
+        this.fDef.maxLength > 0 &&
+        this.cvd.length >= this.fDef.maxLength &&
         this.$refs.refinput.selectionEnd - this.$refs.refinput.selectionStart <
           1
       ) {
         event.preventDefault();
       }
-      if (this.fieldDef.type == "date") {
+      if (this.fDef.type == "date") {
         if ("1234567890/.-".indexOf(event.key) < 0) {
           event.preventDefault();
         }
       }
-      if (this.fieldDef.type == "int") {
+      if (this.fDef.type == "int") {
         if ("1234567890".indexOf(event.key) < 0) {
           event.preventDefault();
         }
