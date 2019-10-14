@@ -32,20 +32,20 @@
         <!-- </div>
         <div class="w3-row">-->
         <div class="w3-col w3-container m4 l3 w3-light-blue">
-          <label class="w3-text-blue">Test field 001: {{this.f1.typ}}</label>
+          <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
           <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
         </div>
         <div class="w3-col w3-container m4 l3 w3-light-blue">
-          <label class="w3-text-blue">Test field 002: {{this.f2.typ}}</label>
+          <label class="w3-text-blue">Test field 002: {{this.f2.type}}</label>
           <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
         </div>
         <div class="w3-col w3-container m4 l3 w3-light-blue">
-          <label class="w3-text-blue">Test field 003: {{this.f3.typ}}</label>
+          <label class="w3-text-blue">Test field 003: {{this.f3.type}}</label>
           <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
         </div>
         <div class="w3-col w3-container m4 l3 w3-aqua">
           <!-- <p> -->
-          <label class="w3-text-blue">Test field 01: {{this.fieldDef1.typ}}</label>
+          <label class="w3-text-blue">Test field 01: {{this.fieldDef1.type}}</label>
           <MagInput :fieldDef="fieldDef1" @valuechanged="onValueChanged" :debug="debug"></MagInput>
           <!-- </p> -->
         </div>
@@ -53,7 +53,7 @@
         <div class="w3-row">-->
         <div class="w3-col w3-container m4 l3 w3-aqua">
           <!-- <p> -->
-          <label class="w3-text-blue">Test field 02: {{this.fieldDef2.typ}}</label>
+          <label class="w3-text-blue">Test field 02: {{this.fieldDef2.type}}</label>
           <MagInput
             msg="MagInput test2"
             :fieldDef="fieldDef2"
@@ -66,7 +66,7 @@
         <div class="w3-row">-->
         <div class="w3-col w3-container m4 l3 w3-aqua">
           <!-- <p> -->
-          <label class="w3-text-blue">Test field 03: {{this.fieldDef3.typ}}</label>
+          <label class="w3-text-blue">Test field 03: {{this.fieldDef3.type}}</label>
           <MagInput
             msg="MagInput test3"
             :fieldDef="fieldDef3"
