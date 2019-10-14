@@ -5,14 +5,15 @@
     </div>
     <form class="w3-container">
       <p>
-        <label>First Name</label>
+        <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
         <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
       </p>
-
-        <label>First Name</label>
-        <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
       <p>
-        <label>First Name</label>
+        <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
+        <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+      </p>
+      <p>
+        <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
         <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
       </p>
     </form>
