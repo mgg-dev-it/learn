@@ -3,30 +3,28 @@
     <div class="w3-container w3-blue">
       <h2>Input Form</h2>
     </div>
-    <form class="w3-container">
-      <p>
-        <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
-        <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
-      </p>
-      <p>
-        <label class="w3-text-blue">Test field 002: {{this.f2.type}}</label>
-        <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
-      </p>
-      <p>
-        <label class="w3-text-blue">Test field 003: {{this.f3.type}}</label>
-        <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
-      </p>
-    </form>
-    <div class="w3-row">
-      <div class="w3-col w3-container m4 l3 w3-light-blue">
-        <p>Value of test field 001: {{f1.value}}</p>
+    <div class="w3-container w3-half">
+      <form class="w3-container">
+        <p>
+          <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
+          <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+        </p>
+        <p>
+          <label class="w3-text-blue">Test field 002: {{this.f2.type}}</label>
+          <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+        </p>
+        <p>
+          <label class="w3-text-blue">Test field 003: {{this.f3.type}}</label>
+          <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+        </p>
+      </form>
+
+      <div class="w3-container w3-light-blue">
+          <p>Value of test field 001: {{f1.value}}</p>
+          <p>Value of test field 002: {{f2.value}}</p>
+          <p>Value of test field 003: {{f3.value}}</p>
       </div>
-      <div class="w3-col w3-container m4 l3 w3-light-blue">
-        <p>Value of test field 002: {{f2.value}}</p>
-      </div>
-      <div class="w3-col w3-container m4 l3 w3-light-blue">
-        <p>Value of test field 003: {{f3.value}}</p>
-      </div>
+
     </div>
   </div>
 </template>
