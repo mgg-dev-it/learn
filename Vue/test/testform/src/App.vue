@@ -9,11 +9,11 @@
         <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
       </p>
       <p>
-        <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
+        <label class="w3-text-blue">Test field 002: {{this.f2.type}}</label>
         <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
       </p>
       <p>
-        <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
+        <label class="w3-text-blue">Test field 003: {{this.f3.type}}</label>
         <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
       </p>
     </form>
