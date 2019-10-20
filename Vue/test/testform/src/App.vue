@@ -121,25 +121,25 @@ export default {
       //     this.value3 = val;
       //     break;
       // }
-    },
-    onValueChanged1(val, name) {
-      if (this.debug) {
-        console.log("onValueChanged1 " + name + " " + val);
-      }
-      this.value1 = val;
-    },
-    onValueChanged2(val, name) {
-      if (this.debug) {
-        console.log("onValueChanged2 " + name + " " + val);
-      }
-      this.value2 = val;
-    },
-    onValueChanged3(val, name) {
-      if (this.debug) {
-        console.log("onValueChanged3 " + name + " " + val);
-      }
-      this.value3 = val;
     }
+    // onValueChanged1(val, name) {
+    //   if (this.debug) {
+    //     console.log("onValueChanged1 " + name + " " + val);
+    //   }
+    //   this.value1 = val;
+    // },
+    // onValueChanged2(val, name) {
+    //   if (this.debug) {
+    //     console.log("onValueChanged2 " + name + " " + val);
+    //   }
+    //   this.value2 = val;
+    // },
+    // onValueChanged3(val, name) {
+    //   if (this.debug) {
+    //     console.log("onValueChanged3 " + name + " " + val);
+    //   }
+    //   this.value3 = val;
+    // }
   }
 };
 </script>
