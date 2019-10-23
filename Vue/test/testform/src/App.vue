@@ -28,9 +28,14 @@
 
     <div class="w3-container w3-half">
       <div>
-        <MagForm :fieldDefinitions="fa" :debug="debug"></MagForm>
+        <MagForm :fieldDefinitions="fa" @valuechanged="onValueChanged" :debug="debug"></MagForm>
       </div>
     </div>
+      <div class="w3-container w3-light-green">
+        <p>Value of test field 011: {{f11.value}}</p>
+        <p>Value of test field 012: {{f12.value}}</p>
+        <p>Value of test field 013: {{f13.value}}</p>
+      </div>
   </div>
 </template>
 

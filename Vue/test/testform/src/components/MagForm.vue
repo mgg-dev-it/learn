@@ -6,7 +6,7 @@
     <form class="w3-container">
       <p v-for="field in fieldDefinitions" v-bind:key="field.name">
         <label class="w3-text-blue">{{field.name}}: {{field.type}}</label>
-        <MagInput2 :fDef="field" :debug="debug"></MagInput2>
+        <MagInput2 :fDef="field" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
       </p>
     </form>
   </div>
@@ -15,6 +15,7 @@
 <script>
 import MagInput2 from "./MagInput2.vue";
 import { dbmixin } from "@/mixins/dbmixin.js";
+var mapFields = new Map();
 export default {
   mixins: [dbmixin],
   props: {
@@ -23,20 +24,37 @@ export default {
   },
   components: {
     MagInput2
-  },  data() {
+  },
+  data() {
     return {
       fields: []
     };
   },
-created: function() {
+  created: function() {
     //console.log("MagForm created");
-     //onsole.log(this.fieldDefinitions);
+    //onsole.log(this.fieldDefinitions);
     // if (this.fDef.type == "date" || this.fDef.type == "int") {
     //   this.inputMode = "decimal";
     // }
     // this.cvd = this.fDef.value;
     // if (this.fDef.upperCase) {
     //   this.cvd = this.cvd.toUpperCase();
+    // }
+    for (var i = 0; i < this.fieldDefinitions.length; i++) {
+      mapFields.set(this.fieldDefinitions[i].name, this.fieldDefinitions[i]);
+    }
+  },
+  methods: {
+    onValueChanged(val, name) {
+      // var f = mapFields.get(name);
+      // console.log(name);
+      // console.log(val);
+      // console.log(f);
+      //this.raiseEventValueChanged();
+       this.$emit("valuechanged", val, name);
+    }
+    // raiseEventValueChanged() {
+    //   this.$emit("valuechanged", this.cvd, this.fDef.name);
     // }
   }
 };
