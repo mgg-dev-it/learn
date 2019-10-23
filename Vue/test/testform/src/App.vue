@@ -20,17 +20,23 @@
       </form>
 
       <div class="w3-container w3-light-blue">
-          <p>Value of test field 001: {{f1.value}}</p>
-          <p>Value of test field 002: {{f2.value}}</p>
-          <p>Value of test field 003: {{f3.value}}</p>
+        <p>Value of test field 001: {{f1.value}}</p>
+        <p>Value of test field 002: {{f2.value}}</p>
+        <p>Value of test field 003: {{f3.value}}</p>
       </div>
+    </div>
 
+    <div class="w3-container w3-half">
+      <div>
+        <MagForm :fieldDefinitions="fa" :debug="debug"></MagForm>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import MagInput2 from "./components/MagInput2.vue";
+import MagForm from "./components/MagForm.vue";
 import "@/assets/w3.css";
 import { dbmixin } from "@/mixins/dbmixin.js";
 
@@ -40,7 +46,8 @@ export default {
   mixins: [dbmixin],
   name: "app",
   components: {
-    MagInput2
+    MagInput2,
+    MagForm
   },
   data() {
     return {
@@ -52,7 +59,11 @@ export default {
       //person: this.Person,
       f1: this.FieldDef,
       f2: this.FieldDef,
-      f3: this.FieldDef
+      f3: this.FieldDef,
+      f11: this.FieldDef,
+      f12: this.FieldDef,
+      f13: this.FieldDef,
+      fa: [this.f11, this.f12, this.f13]
       // fieldDef1: {
       //   name: "field1",
       //   type: "text",
@@ -97,6 +108,20 @@ export default {
     mapFields.set(this.f1.name, this.f1);
     mapFields.set(this.f2.name, this.f2);
     mapFields.set(this.f3.name, this.f3);
+
+    this.f11 = new this.FieldDef("field11", "text", "");
+    this.f11.upperCase = true;
+    this.f11.maxLength = 5;
+    this.f11.focused = true;
+    this.f12 = new this.FieldDef("field12", "int", "");
+    this.f12.maxLength = 10;
+    this.f13 = new this.FieldDef("field13", "date", "");
+    mapFields.set(this.f11.name, this.f11);
+    mapFields.set(this.f12.name, this.f12);
+    mapFields.set(this.f13.name, this.f13);
+    this.fa = [this.f11, this.f12, this.f13];
+    //console.log(this.f11);
+    //console.log("App created end");
   },
   mounted: function() {
     //console.log("App mounted");
