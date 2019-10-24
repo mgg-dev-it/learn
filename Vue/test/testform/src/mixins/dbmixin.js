@@ -6,13 +6,13 @@ export const dbmixin = {
         }
     },
     beforeCreate() {
-       // console.log("dbmixin beforeCreate");
+       //console.log("dbmixin beforeCreate");
     },
     created() {
-        //console.log("dbmixin created");
+       //console.log("dbmixin created");
     },
     mounted() {
-        //console.log("dbmixin mounted");
+       //console.log("dbmixin mounted");
     },
     methods: {
         Person: function(first, last, age, eyecolor) {

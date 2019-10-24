@@ -1,8 +1,8 @@
 <template>
   <div id="magformdiv">
-    <div class="w3-container w3-green">
+    <!-- <div class="w3-container w3-green">
       <h2>MagForm</h2>
-    </div>
+    </div> -->
     <form class="w3-container">
       <p v-for="field in fieldDefinitions" v-bind:key="field.name">
         <label class="w3-text-blue">{{field.name}}: {{field.type}}</label>
@@ -30,8 +30,11 @@ export default {
       fields: []
     };
   },
+  beforeCreate: function() {
+    console.log("MagForm beforeCreate");
+  },
   created: function() {
-    //console.log("MagForm created");
+    console.log("MagForm created");
     //onsole.log(this.fieldDefinitions);
     // if (this.fDef.type == "date" || this.fDef.type == "int") {
     //   this.inputMode = "decimal";
