@@ -28,12 +28,12 @@
 
     <div class="w3-container w3-half" style="border:5px solid blue">
       <div>
-        <MagForm :fieldDefinitions="fax" @valuechanged="onValueChanged" :debug="debug"></MagForm>
-      <div class="w3-container w3-light-blue" style="border:5px solid red">
-        <p>Value of test field 011: {{f11.value}}</p>
-        <p>Value of test field 012: {{f12.value}}</p>
-        <p>Value of test field 013: {{f13.value}}</p>
-      </div>
+        <MagForm :fieldDefinitions="this.tableDef" @valuechanged="onValueChanged" :debug="debug"></MagForm>
+        <div class="w3-container w3-light-blue" style="border:5px solid red">
+          <p>Value of test field 011: {{this.tableDef[0].value}}</p>
+          <p>Value of test field 012: {{this.tableDef[1].value}}</p>
+          <p>Value of test field 013: {{this.tableDef[2].value}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@ export default {
     MagInput2,
     MagForm
   },
-  data: function () {
+  data: function() {
     console.log("data");
     return {
       debug: false,
@@ -71,50 +71,59 @@ export default {
       f12: this.FieldDef,
       f13: this.FieldDef,
       fa: [this.f11, this.f12, this.f13],
-      fieldDef1: {
-        name: "field1",
-        type: "text",
-        value: "",
-        upperCase: true,
-        maxLength: 5,
-        focused: true
-      },
-      fieldDef2: {
-        name: "field2",
-        type: "int",
-        value: "",
-        //upperCase: true,
-        maxLength: 10
-        //focused: true
-      },
-      fieldDef3: {
-        name: "field3",
-        type: "date",
-        value: "",
-        upperCase: false,
-        maxLength: -1
-      },
+      // fieldDef1: {
+      //   name: "field1",
+      //   type: "text",
+      //   value: "",
+      //   upperCase: true,
+      //   maxLength: 5,
+      //   focused: true
+      // },
+      // fieldDef2: {
+      //   name: "field2",
+      //   type: "int",
+      //   value: "",
+      //   //upperCase: true,
+      //   maxLength: 10
+      //   //focused: true
+      // },
+      // fieldDef3: {
+      //   name: "field3",
+      //   type: "date",
+      //   value: "",
+      //   upperCase: false,
+      //   maxLength: -1
+      // },
+      f4 : new this.FieldDef("field04", "text", ""),
       fax: [this.fieldDef1, this.fieldDef2, this.fieldDef3],
-      faa: this.fieldDefinitions99
+      faa: this.fieldDefinitions99,
+      va: 10,
+      vb: 20,
+      vc: this.va + this.vb
     };
+  },
+  computed: {
+    vd: function() {
+      return this.va + this.vb;
+    }
   },
   beforeCreate: function() {
     console.log("App beforeCreate");
   },
   created: function() {
-    console.log("App created");
-    console.log(this.fieldDef1);
-    console.log(this.fieldDef2);
-    console.log(this.fieldDef3);
-    console.log("this.faa");
-    console.log(this.faa);
-    console.log("this.fieldDefinitions99");
-    console.log(this.fieldDefinitions99);
-    console.log("this.fax");
-    console.log(this.fax);
-    this.fax = [this.fieldDef1, this.fieldDef2, this.fieldDef3];
-    console.log("this.fax again");
-    console.log(this.fax);
+    // console.log("App created");
+    // console.log(this.fieldDef1);
+    // console.log(this.fieldDef2);
+    // console.log(this.fieldDef3);
+    // console.log("this.faa");
+    // console.log(this.faa);
+    // console.log("this.fieldDefinitions99");
+    // console.log(this.fieldDefinitions99);
+    // console.log("this.fax");
+    // console.log(this.fax);
+    // this.fax = [this.fieldDef1, this.fieldDef2, this.fieldDef3];
+    // console.log("this.fax again");
+    // console.log(this.fax);
 
     mapFields.set(this.fieldDef1.name, this.fieldDef1);
     mapFields.set(this.fieldDef2.name, this.fieldDef2);
@@ -148,10 +157,16 @@ export default {
     //console.log("App created end");
   },
   mounted: function() {
-    console.log("App mounted begin");
-    //console.log(this.fieldDef1);
-    console.log(this.aaa);
-    console.log("App mounted end");
+    // console.log("App mounted begin");
+    console.log(this.f4);
+    // //console.log(this.fieldDef1);
+    // console.log(this.va);
+    // console.log(this.vb);
+    // console.log(this.vc);
+    // console.log(this.vd);
+    // console.log(this.aaa);
+    // console.log(this.tableDef);
+    // console.log("App mounted end");
   },
   methods: {
     onValueChanged(val, name) {

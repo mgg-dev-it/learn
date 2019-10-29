@@ -8,7 +8,7 @@ export const fieldmixin = {
                 type: "text",
                 value: "",
                 upperCase: true,
-                maxLength: 5,
+                maxLength: 6,
                 focused: true
             },
             fieldDef2: {
@@ -27,6 +27,11 @@ export const fieldmixin = {
                 maxLength: -1
             },
             fieldDefinitions99: [this.fieldDef1, this.fieldDef2, this.fieldDef3]
+        }
+    },
+    computed: {
+        tableDef: function () {
+            return ([this.fieldDef1, this.fieldDef2, this.fieldDef3])
         }
     },
     beforeCreate() {
