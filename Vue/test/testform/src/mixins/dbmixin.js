@@ -6,16 +6,16 @@ export const dbmixin = {
         }
     },
     beforeCreate() {
-       //console.log("dbmixin beforeCreate");
+        //console.log("dbmixin beforeCreate");
     },
     created() {
-       //console.log("dbmixin created");
+        //console.log("dbmixin created");
     },
     mounted() {
-       //console.log("dbmixin mounted");
+        //console.log("dbmixin mounted");
     },
     methods: {
-        Person: function(first, last, age, eyecolor) {
+        Person: function (first, last, age, eyecolor) {
             this.firstName = first;
             this.lastName = last;
             this.age = age;
@@ -26,13 +26,17 @@ export const dbmixin = {
                 this.lastName = name;
             };
         },
-        FieldDef: function(name, type, value) {
+        FieldDef: function (name, type, value) {
             this.name = name;
             this.type = type;
             this.value = value;
             this.upperCase = false;
             this.maxLength = -1;
             this.focused = false;
+            this.setMaxLength = function (m) {
+                this.maxLength = m;
+                return (this);
+            }
         }
     }
 }

@@ -95,6 +95,7 @@ export default {
       //   maxLength: -1
       // },
       f4 : new this.FieldDef("field04", "text", ""),
+      f5 : new this.FieldDef("field05", "text", "").setMaxLength(10),
       fax: [this.fieldDef1, this.fieldDef2, this.fieldDef3],
       faa: this.fieldDefinitions99,
       va: 10,
@@ -159,6 +160,7 @@ export default {
   mounted: function() {
     // console.log("App mounted begin");
     console.log(this.f4);
+    console.log(this.f5);
     // //console.log(this.fieldDef1);
     // console.log(this.va);
     // console.log(this.vb);
