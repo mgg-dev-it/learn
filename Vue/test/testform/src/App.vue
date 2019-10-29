@@ -28,7 +28,7 @@
 
     <div class="w3-container w3-half" style="border:5px solid blue">
       <div>
-        <MagForm :fieldDefinitions="faa" @valuechanged="onValueChanged" :debug="debug"></MagForm>
+        <MagForm :fieldDefinitions="fax" @valuechanged="onValueChanged" :debug="debug"></MagForm>
       <div class="w3-container w3-light-blue" style="border:5px solid red">
         <p>Value of test field 011: {{f11.value}}</p>
         <p>Value of test field 012: {{f12.value}}</p>
@@ -141,14 +141,17 @@ export default {
     mapFields.set(this.f11.name, this.f11);
     mapFields.set(this.f12.name, this.f12);
     mapFields.set(this.f13.name, this.f13);
-    this.fax = [this.fieldDef1, this.fieldDef2, this.fieldDef3];
+    //this.fax = [this.fieldDef1, this.fieldDef2, this.fieldDef3];
+    this.fax = [this.f11, this.f12, this.f13];
     this.faa = this.fieldDefinitions99;
     //console.log(this.f11);
     //console.log("App created end");
   },
   mounted: function() {
-    console.log("App mounted");
-    console.log(this.fieldDef1);
+    console.log("App mounted begin");
+    //console.log(this.fieldDef1);
+    console.log(this.aaa);
+    console.log("App mounted end");
   },
   methods: {
     onValueChanged(val, name) {

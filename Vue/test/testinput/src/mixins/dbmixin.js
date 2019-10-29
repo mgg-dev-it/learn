@@ -1,15 +1,17 @@
 export const dbmixin = {
     data() {
         return {
-            a: "",
-            b: ""
+            aaa: "aaa",
+            bbb: "bbb"
         }
     },
     beforeCreate() {
        // console.log("dbmixin beforeCreate");
+       this.aaa = "xxx";
     },
     created() {
         //console.log("dbmixin created");
+        this.aaa = "yyy";
     },
     mounted() {
         //console.log("dbmixin mounted");

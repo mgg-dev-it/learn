@@ -1,7 +1,7 @@
 export const dbmixin = {
     data() {
         return {
-            a: "",
+            aaa: "aaa",
             b: ""
         }
     },
