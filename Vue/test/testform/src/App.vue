@@ -7,15 +7,15 @@
       <form class="w3-container">
         <p>
           <label class="w3-text-blue">Test field 001: {{this.f1.type}}</label>
-          <MagInput2 :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+          <MagInput :fDef="f1" @valuechanged="onValueChanged" :debug="debug"></MagInput>
         </p>
         <p>
           <label class="w3-text-blue">Test field 002: {{this.f2.type}}</label>
-          <MagInput2 :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+          <MagInput :fDef="f2" @valuechanged="onValueChanged" :debug="debug"></MagInput>
         </p>
         <p>
           <label class="w3-text-blue">Test field 003: {{this.f3.type}}</label>
-          <MagInput2 :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput2>
+          <MagInput :fDef="f3" @valuechanged="onValueChanged" :debug="debug"></MagInput>
         </p>
       </form>
 
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import MagInput2 from "./components/MagInput2.vue";
+import MagInput from "./components/MagInput.vue";
 import MagForm from "./components/MagForm.vue";
 import "@/assets/w3.css";
 import { dbmixin } from "@/mixins/dbmixin.js";
@@ -52,7 +52,7 @@ export default {
   mixins: [dbmixin, fieldmixin],
   name: "app",
   components: {
-    MagInput2,
+    MagInput,
     MagForm
   },
   data: function() {
@@ -94,8 +94,8 @@ export default {
       //   upperCase: false,
       //   maxLength: -1
       // },
-      f4 : new this.FieldDef("field04", "text", ""),
-      f5 : new this.FieldDef("field05", "text", "").setMaxLength(10),
+      f4: new this.FieldDef("field04", "text", ""),
+      f5: new this.FieldDef("field05", "text", "").setMaxLength(10),
       fax: [this.fieldDef1, this.fieldDef2, this.fieldDef3],
       faa: this.fieldDefinitions99,
       va: 10,
@@ -154,6 +154,10 @@ export default {
     //this.fax = [this.fieldDef1, this.fieldDef2, this.fieldDef3];
     this.fax = [this.f11, this.f12, this.f13];
     this.faa = this.fieldDefinitions99;
+
+    mapFields.set(this.f11.name, this.f11);
+    mapFields.set(this.f12.name, this.f12);
+    mapFields.set(this.f13.name, this.f13);
     //console.log(this.f11);
     //console.log("App created end");
   },
@@ -175,8 +179,8 @@ export default {
       if (this.debug) {
         console.log("onValueChanged " + name + " " + val);
       }
-      var f = mapFields.get(name);
-      f.value = val;
+      //temporary var f = mapFields.get(name);
+      //temporary f.value = val;
     }
   }
 };

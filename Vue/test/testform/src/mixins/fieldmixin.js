@@ -26,12 +26,17 @@ export const fieldmixin = {
                 upperCase: false,
                 maxLength: -1
             },
+            //f5 : new this.FieldDef("field05", "text", "").setMaxLength(10),
+            f101 : new this.FieldDef("field101", "text", "").setMaxLength(6).setUpperCase(true),
+            f102 : new this.FieldDef("field102", "int", "").setMaxLength(10),
+            f103 : new this.FieldDef("field103", "date", ""),
             fieldDefinitions99: [this.fieldDef1, this.fieldDef2, this.fieldDef3]
         }
     },
     computed: {
         tableDef: function () {
-            return ([this.fieldDef1, this.fieldDef2, this.fieldDef3])
+            //return ([this.fieldDef1, this.fieldDef2, this.fieldDef3])
+            return ([this.f101, this.f102, this.f103])
         }
     },
     beforeCreate() {
@@ -56,13 +61,22 @@ export const fieldmixin = {
         //         this.lastName = name;
         //     };
         // },
-        // FieldDef: function (name, type, value) {
-        //     this.name = name;
-        //     this.type = type;
-        //     this.value = value;
-        //     this.upperCase = false;
-        //     this.maxLength = -1;
-        //     this.focused = false;
-        // }
+        FieldDef: function (name, type, value) {
+            this.name = name;
+            this.type = type;
+            this.value = value;
+            this.displayName = name;
+            this.upperCase = false;
+            this.maxLength = -1;
+            this.focused = false;
+            this.setMaxLength = function (m) {
+                this.maxLength = m;
+                return (this);
+            }
+            this.setUpperCase = function (u){
+                this.upperCase = u;
+                return (this);
+            }
+        }
     }
 }

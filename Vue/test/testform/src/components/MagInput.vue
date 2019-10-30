@@ -209,6 +209,6 @@ input:focus {
   padding-top: 1px;
   padding-left: 5px;
   padding-bottom: 1px;
-  background-color: lemonchiffon;
+  background-color: rgb(232, 255, 232);
 }
 </style>
