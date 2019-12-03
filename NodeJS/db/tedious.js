@@ -27,13 +27,15 @@ function executeStatement () {
   })
 
   request.on('row', function (columns) {
+	console.log("---");
     columns.forEach(function (column) {
       if (column.value === null) {
         console.log('NULL')
       } else {
         console.log(column.value)
       }
-    })
+    });
+	console.log("+++");
   })
 
   connection.execSql(request)
