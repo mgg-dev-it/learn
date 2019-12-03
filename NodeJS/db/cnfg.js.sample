@@ -1,0 +1,12 @@
+var config = {
+  authentication: {
+	  type: "default",
+      options: {
+  		userName: '<userName>',
+		  password: '<password>'
+		  }
+  },
+  server: '<server>'
+}
+
+exports.config = config;
