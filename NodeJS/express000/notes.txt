@@ -27,3 +27,21 @@ https://github.com/auth0/node-jsonwebtoken
 http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html
 
 https://www.google.com/search?source=hp&ei=X-z_XbmFCJCOrwTK2Lj4DA&q=how+to+use+jwt+in+node+js&oq=how+to+use+jwt&gs_l=psy-ab.3.5.0l3j0i22i30l7.2432.8019..16109...0.0..0.96.1022.14......0....1..gws-wiz.......0i131.UPr5w7OarxM
+
+
+https://swagger.io/specification/
+https://github.com/swagger-api/swagger-node
+
+
+
+https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
+https://tools.ietf.org/html/rfc7231
+
+
+
+https://semver.org/spec/v2.0.0.html
+https://semver.org/lang/hu/spec/v2.0.0.html
+
+
+
+hal?
