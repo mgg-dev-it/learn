@@ -1,6 +1,8 @@
-const mag-js-lib = require('mag-js-lib');
+const magjslib = require('mag-js-lib');
 
-const auth = require('auth');
+//const auth = require('auth');
+
+const auth = magjslib.auth;
 
 console.log("begin");
 
