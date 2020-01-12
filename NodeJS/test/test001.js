@@ -13,11 +13,13 @@ const magjslib = require('mag-js-lib');
 const auth = magjslib.auth;
 
 const db = magjslib.db;
+const db2 = magjslib.db;
 
 console.log("begin");
 
 auth.login("admin", "admin");
 
-db.init("mssql", "server", "user", "pass");
+db.init("mssql", "tedious", "server", "user", "pass");
+db2.init("mssql", "ms", "server", "user", "pass");
 
 console.log("end");
