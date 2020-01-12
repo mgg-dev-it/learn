@@ -7,6 +7,7 @@ var config = require('./cnfg.js').config
 
 var connection = new Connection(config)
 
+
 connection.on('connect', function (err) {
   if (err) {
     console.log(err)
