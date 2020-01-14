@@ -26,9 +26,24 @@ const db2 = magjslib.db;
 
 console.log("begin");
 
+console.log("");
+
 auth.login("admin", "admin");
 
+
 db.init(db_test_dbms, db_test_driver, db_test_server, db_test_username, db_test_password);
-//db2.init("mssql", "ms", "server", "user", "pass");
+//console.log(db.getStatus());
+console.log(`db.status = ${db.getStatus()}`);
+db.connect();
+
+
+console.log("");
+
+//if (!db2.init("", null, null, undefined, "")) return(false);
+db2.init("", null, null, undefined, "");
+console.log(`db2.status = ${db2.getStatus()}`);
+db2.connect();
+
+console.log("");
 
 console.log("end");
