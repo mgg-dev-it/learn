@@ -1,3 +1,5 @@
+'use strict';
+
 //console.log(process.env);
 //console.log(process.env.DEBUG);
 //process.env.DEBUG = true;
@@ -34,16 +36,27 @@ auth.login("admin", "admin");
 db.init(db_test_dbms, db_test_driver, db_test_server, db_test_username, db_test_password);
 //console.log(db.getStatus());
 console.log(`db.status = ${db.getStatus()}`);
-db.connect();
-
-
-console.log("");
+db.connect(cb_connect);
+//db.disconnect();
+//console.log(`db.status = ${db.getStatus()}`);
+//console.log("");
 
 //if (!db2.init("", null, null, undefined, "")) return(false);
-db2.init("", null, null, undefined, "");
-console.log(`db2.status = ${db2.getStatus()}`);
-db2.connect();
+//db2.init("", null, null, undefined, "");
+//console.log(`db2.status = ${db2.getStatus()}`);
+//db2.connect();
 
-console.log("");
+//console.log("");
 
 console.log("end");
+
+// var cb_connect = function (){
+//     console.log("cb_connect");
+// }
+
+function cb_connect() {
+    console.log("in cb_connect ...");
+    console.log(`db.status = ${db.getStatus()}`);
+    db.disconnect();
+    console.log(`db.status = ${db.getStatus()}`);
+}
