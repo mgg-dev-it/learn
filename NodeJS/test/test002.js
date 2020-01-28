@@ -13,7 +13,7 @@ var config = {
         type: "default",
         options: {
             userName: 'sqlszlaApp',
-            password: 'kx2Wed89RetszLa'
+            password: 'xxx'
         }
     },
     server: 'sqlpohu.in.porsche.hu'
