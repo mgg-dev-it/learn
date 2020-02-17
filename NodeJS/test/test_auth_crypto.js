@@ -18,7 +18,16 @@ var s = "The quick brown fox jumps over the lazy dog";
 
 // const chilkat = require('@chilkat/ck-node11-win64'); 
 
-console.log(haval.EncryptPwHaval.main(null));
+//console.log(haval.EncryptPwHaval.main(null));
+
+//console.log(haval.main(null));
+//console.log(haval.Encrypt(null));
+//console.log(haval.Encrypt(""));
+//console.log(haval.Encrypt("a"));
+console.log(haval.Encrypt("á"));
+console.log(haval.Encrypt("é"));
+console.log(haval.Encrypt("ő"));
+console.log(haval.Encrypt("éáőúöüóíÉÁŰÖÜÓŐÚÍ"));
 
 
 // // Hash using HAVAL
