@@ -30,6 +30,8 @@ console.log("begin");
 
 console.log("");
 
+var ldp = new auth.testlogindataprovider();
+auth.init(ldp);
 auth.login("admin", "admin");
 
 
