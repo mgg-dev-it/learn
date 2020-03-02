@@ -52,8 +52,10 @@ function verifyToken(req, res, next) {
 			if (err) {
 				console.log("jwt.verify error");
 				//console.log(err);
+				console.log(err.name);
+				console.log(err.message);
 				//res.status(403).send("403 Forbidden");
-				res.status(403).json({ success: false, error: true, message: "Login failed" });
+				res.status(403).json({ success: false, error: true, message: "Login failed", jwterrormessage: err.message });
 			}
 		});
 	} else {
