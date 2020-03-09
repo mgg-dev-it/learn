@@ -20,8 +20,9 @@ console.log("end");
 function do_on_success() {
     console.log("connected ...");
     console.log(`db.status = ${db.getStatus()}`);
-    db.disconnect();
-    console.log(`db.status = ${db.getStatus()}`);
+    do_request();
+    //db.disconnect();
+    //console.log(`db.status = ${db.getStatus()}`);
 }
 
 function do_on_error(err) {
@@ -32,3 +33,27 @@ function do_on_error(err) {
     db.disconnect();
     console.log(`db.status = ${db.getStatus()}`);
 }
+
+function do_request(){
+    //db.request("select 42, 'Hello World!'", do_on_request);
+    db.request("select 42, 'Hello World!' union select 84, 'Hello Universe!'", do_on_request);
+}
+
+function do_on_request(err, rowCount, rows){
+    if (err) {
+        console.log("do_on_request err");
+        console.log(err);
+      } else {
+        console.log("do_on_request success");
+        console.log(rowCount + ' rows');
+        console.log(rows);
+
+        rows.forEach(function(row) {
+            console.log(row);
+          });
+
+
+      }
+      db.disconnect();
+      console.log(`db.status = ${db.getStatus()}`);
+  }
