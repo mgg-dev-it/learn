@@ -28,7 +28,7 @@ const db2 = magjslib.db;
 
 console.log("begin");
 
-console.log("");
+//console.log("");
 
 var ldp = new auth.testlogindataprovider();
 auth.init(ldp);

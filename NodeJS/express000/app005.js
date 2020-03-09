@@ -24,7 +24,7 @@ app.post("/login", (req, res) => {
 	if (req.body.username && req.body.password) {
 		if (req.body.username == "admin" && req.body.password == "secret") {
 			//console.log("success");
-			let jwtToken = jwt.sign({ data: "admin", role: "role_admin", exp: new Date().setDate(new Date().getDate() + 1) }, secretKey);
+			let jwtToken = jwt.sign({ data: "admin", role: "role_admin", akarmi:"xxx",  exp: new Date().setDate(new Date().getDate() + 1) }, secretKey);
 			res.json({ success: true, token: jwtToken });
 		}
 	}
