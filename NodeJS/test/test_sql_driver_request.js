@@ -34,26 +34,36 @@ function do_on_error(err) {
     console.log(`db.status = ${db.getStatus()}`);
 }
 
-function do_request(){
-    //db.request("select 42, 'Hello World!'", do_on_request);
-    db.request("select 42, 'Hello World!' union select 84, 'Hello Universe!'", do_on_request);
+function do_request() {
+    //db.request("select 42, 'Hello World!'", do_on_request, do_on_request_completed);
+    //db.request("select 42, 'Hello World!' union select 84, 'Hello Universe!'", do_on_request, do_on_request_completed);
+    db.request("execute testMultipleRecordset", do_on_request, do_on_request_completed);
 }
 
-function do_on_request(err, rowCount, rows){
+function do_on_request(err, rowCount, rows) {
     if (err) {
         console.log("do_on_request err");
         console.log(err);
-      } else {
+    } else {
         console.log("do_on_request success");
-        console.log(rowCount + ' rows');
-        console.log(rows);
+        //console.log(rowCount + ' rows');
+        //console.log(rows);
 
-        rows.forEach(function(row) {
+        rows.forEach(function (row) {
             console.log(row);
-          });
+        });
 
 
-      }
-      db.disconnect();
-      console.log(`db.status = ${db.getStatus()}`);
-  }
+    }
+    db.disconnect();
+    console.log(`db.status = ${db.getStatus()}`);
+}
+
+function do_on_request_completed() {
+    let rscount = db.getResultSetCount();
+    console.log(`resultset count = ${rscount}`);
+    for (var i=0; i<rscount; i++){
+        console.log(`metadata [${i}]:`);
+        console.log(db.getMetadata(i));
+    }
+}
