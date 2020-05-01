@@ -106,6 +106,7 @@ export default {
         console.log("onInput isComposing " + event.isComposing);
       }
     },
+    // eslint-disable-next-line no-unused-vars
     onBlur(event) {
       //because of IME composition mode ...
       if (this.fDef.maxLength > 0 && this.cvd.length >= this.fDef.maxLength) {
