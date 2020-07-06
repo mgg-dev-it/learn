@@ -3,46 +3,9 @@
 const magjslib = require('mag-js-lib');
 const auth = magjslib.auth;
 
-const haval = magjslib.haval;
+const haval = magjslib.haval_work;
 
 var s = "The quick brown fox jumps over the lazy dog";
-
-
-//console.log("111");
-
-//console.log(auth.haval(s));
-
-//console.log(auth.haval(''));
-
-//console.log("222");
-
-// const chilkat = require('@chilkat/ck-node11-win64');
-
-//console.log(haval.EncryptPwHaval.main(null));
-
-//console.log(haval.main(null));
-//console.log(haval.Encrypt(null));
-
-//console.log(haval.Encrypt(""));
-//console.log(haval.Encrypt("a"));
-//console.log(haval.Encrypt("almafa"));
-//console.log(haval.Encrypt("á"));
-//console.log(haval.Encrypt("é"));
-//console.log(haval.Encrypt("ő"));
-//console.log(haval.Encrypt("ű"));
-//console.log(haval.Encrypt("Ő"));
-//console.log(haval.Encrypt("Ű"));
-//console.log(haval.Encrypt("éáőúöüóíÉÁŰÖÜÓŐÚÍ"));
-//console.log(haval.Encrypt("aáeéiíoóöőuúüűAÁEÉIÍOÓÖŰUÚÜŰ"));
-//console.log("----------");
-//console.log(haval.EncryptOld("á"));
-//console.log(haval.EncryptOld("é"));
-//console.log(haval.EncryptOld("ő"));
-//console.log(haval.EncryptOld("ű"));
-//console.log(haval.EncryptOld("Ő"));
-//console.log(haval.EncryptOld("Ű"));
-//console.log(haval.EncryptOld("éáőúöüóíÉÁŰÖÜÓŐÚÍ"));
-//console.log(haval.EncryptOld("aáeéiíoóöőuúüűAÁEÉIÍOÓÖŰUÚÜŰ"));
 
 
 console.log("----------");
@@ -52,6 +15,7 @@ console.log("----------");
 console.log(haval.Encrypt(""));
 console.log(haval.EncryptOld(""));
 console.log(h.Encrypt(""));
+console.log(h.EncryptOld(""));
 console.log("----------");
 console.log(haval.Encrypt("a"));
 console.log(haval.EncryptOld("a"));
