@@ -1,10 +1,27 @@
 <template>
   <div id="magformdiv">
-    <form class="w3-container">
+    <!-- <form class="w3-container">
       <p v-for="field in fieldDefinitions" v-bind:key="field.name">
         <label class="w3-text-blue">{{field.displayName}}</label>
         <MagInput :fDef="field" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagInput>
       </p>
+    </form> -->
+    <form class="w3-container">
+      <table style="width: 100%;">
+        <tr v-for="field in fieldDefinitions" v-bind:key="field.name">
+          <td>
+            <label class="w3-text-blue">{{ field.displayName }}:</label>
+          </td>
+          <td style="width: 100%;">
+            <MagInput
+              :fDef="field"
+              @valuechanged="onValueChanged"
+              @lostfocus="onLostFocus"
+              :debug="debug"
+            ></MagInput>
+          </td>
+        </tr>
+      </table>
     </form>
   </div>
 </template>
@@ -15,15 +32,15 @@ var mapFields = new Map();
 export default {
   props: {
     fieldDefinitions: Array, //[this.FieldDef], //Object, //array of FieldDef,
-    debug: Boolean
+    debug: Boolean,
   },
   components: {
-    MagInput
+    MagInput,
   },
   data() {
     return {};
   },
-  created: function() {
+  created: function () {
     for (var i = 0; i < this.fieldDefinitions.length; i++) {
       mapFields.set(this.fieldDefinitions[i].name, this.fieldDefinitions[i]);
     }
@@ -38,8 +55,8 @@ export default {
       var f = mapFields.get(name);
       f.value = val;
       this.$emit("lostfocus", val, name);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -3,30 +3,30 @@
     <div class="w3-container w3-blue">
       <h2>Input Form</h2>
     </div>
-    <div class="w3-container" style="border:5px solid blue">
+    <div class="w3-container" style="border:0px solid blue">
       <div>
         <MagForm :fieldDefinitions="this.tableDef" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
-        <div class="w3-container w3-light-blue" style="border:5px solid red">
+        <div class="w3-container w3-light-blue" style="border:0px solid red">
           <p>Value of test field 1: {{this.tableDef[0].value}}</p>
           <p>Value of test field 2: {{this.tableDef[1].value}}</p>
           <p>Value of test field 3: {{this.tableDef[2].value}}</p>
         </div>
       </div>
     </div>
-    <div class="w3-container" style="border:5px solid green">
+    <div class="w3-container" style="border:0px solid green">
       <div>
         <MagForm :fieldDefinitions="this.tableDefB" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
-        <div class="w3-container w3-light-blue" style="border:5px solid red">
+        <div class="w3-container w3-light-blue" style="border:0px solid red">
           <p>Value of test field b1: {{this.tableDefB[0].value}}</p>
           <p>Value of test field b2: {{this.tableDefB[1].value}}</p>
           <p>Value of test field b3: {{this.tableDefB[2].value}}</p>
         </div>
       </div>
     </div>
-    <div class="w3-container" style="border:5px solid orange">
+    <div class="w3-container" style="border:0px solid orange">
       <div>
         <MagForm :fieldDefinitions="this.tableTest.getFields()" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
-        <div class="w3-container w3-light-blue" style="border:5px solid red">
+        <div class="w3-container w3-light-blue" style="border:0px solid red">
           <p>Value of test field t1: {{this.tableTest.getFields()[0].value}}</p>
           <p>Value of test field t2: {{this.tableTest.getFields()[1].value}}</p>
           <p>Value of test field t3: {{this.tableTest.getFields()[2].value}}</p>
