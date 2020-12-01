@@ -5,18 +5,18 @@
     </div>
     <div class="w3-container" style="border:0px solid blue">
       <div>
-        <MagForm :fieldDefinitions="this.tableDef" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
-        <div class="w3-container w3-light-blue" style="border:0px solid red">
-          <p>Value of test field 1: {{this.tableDef[0].value}}</p>
-          <p>Value of test field 2: {{this.tableDef[1].value}}</p>
-          <p>Value of test field 3: {{this.tableDef[2].value}}</p>
+        <MagForm :fieldDefinitions="this.tableDefA" title="Input 1" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
+        <div class="w3-container" style="border:0px solid red">
+          <p>Value of test field 1: {{this.tableDefA[0].value}}</p>
+          <p>Value of test field 2: {{this.tableDefA[1].value}}</p>
+          <p>Value of test field 3: {{this.tableDefA[2].value}}</p>
         </div>
       </div>
     </div>
     <div class="w3-container" style="border:0px solid green">
       <div>
-        <MagForm :fieldDefinitions="this.tableDefB" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
-        <div class="w3-container w3-light-blue" style="border:0px solid red">
+        <MagForm :fieldDefinitions="this.tableDefB" title="Input 2" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
+        <div class="w3-container" style="border:0px solid red">
           <p>Value of test field b1: {{this.tableDefB[0].value}}</p>
           <p>Value of test field b2: {{this.tableDefB[1].value}}</p>
           <p>Value of test field b3: {{this.tableDefB[2].value}}</p>
@@ -25,8 +25,8 @@
     </div>
     <div class="w3-container" style="border:0px solid orange">
       <div>
-        <MagForm :fieldDefinitions="this.tableTest.getFields()" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
-        <div class="w3-container w3-light-blue" style="border:0px solid red">
+        <MagForm :fieldDefinitions="this.tableTest.getFields()" title="Teszt form" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
+        <div class="w3-container" style="border:0px solid red">
           <p>Value of test field t1: {{this.tableTest.getFields()[0].value}}</p>
           <p>Value of test field t2: {{this.tableTest.getFields()[1].value}}</p>
           <p>Value of test field t3: {{this.tableTest.getFields()[2].value}}</p>
@@ -77,9 +77,9 @@ export default {
       }
     },
     onLostFocus(val, name) {
-      //if (this.debug) {
+      if (this.debug) {
         console.log("onLostFocus " + name + " " + val);
-      //}
+      }
     }
   }
 };

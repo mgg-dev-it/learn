@@ -12,11 +12,11 @@ export const fieldmixin = {
     //     }
     // },
     methods: {
-        FieldDef: function (name, type, value) {
+        FieldDef: function (name, displayname, type, value) {
             this.name = name;
             this.type = type;
             this.value = value;
-            this.displayName = name;
+            this.displayName = displayname;
             this.upperCase = false;
             this.maxLength = -1;
             this.focused = false;
