@@ -8,11 +8,11 @@
       @keypress="onKeyPress"
       @keyup="onKeyUp"
       @input="onInput"
-      placeholder="type here"
       class="w3-input"
       ref="refinput"
       :inputmode="inputMode"
     />
+      <!-- placeholder="type here" -->
   </div>
 </template>
 

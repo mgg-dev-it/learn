@@ -96,5 +96,5 @@ export default {
   /* margin-top: 60px; */
 }
 /* body{font-family:Verdana,sans-serif;font-size:12px;line-height:1.0} */
-body{font-size:12px;line-height:1.0}
+body{font-size:14px;line-height:1.0}
 </style>
