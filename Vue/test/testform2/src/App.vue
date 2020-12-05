@@ -52,8 +52,8 @@ export default {
   },
   data: function() {
     return {
-      //debug: false,
-      debug: true,
+      debug: false,
+      //debug: true,
       t: "",
     };
   },
