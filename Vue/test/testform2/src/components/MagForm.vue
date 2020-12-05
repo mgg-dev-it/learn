@@ -1,14 +1,10 @@
 <template>
   <div id="magformdiv">
-    <!-- <form class="w3-container">
-      <p v-for="field in fieldDefinitions" v-bind:key="field.name">
-        <label class="w3-text-blue">{{field.displayName}}</label>
-        <MagInput :fDef="field" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagInput>
-      </p>
-    </form> -->
     <form class="w3-container">
       <fieldset id="fieldset-mode" class="border-blue" style="width: 100%">
-        <legend v-if="title" class="w3-text-indigo">&nbsp;{{ title }}&nbsp;</legend>
+        <legend v-if="title" class="w3-text-indigo">
+          &nbsp;{{ title }}&nbsp;
+        </legend>
         <table style="width: 100%">
           <tr v-for="field in fieldDefinitions" v-bind:key="field.name">
             <td>
@@ -23,6 +19,17 @@
               ></MagInput>
             </td>
           </tr>
+          <tr v-for="btn in buttonDefinitions" v-bind:key="btn.name">
+            <td>&nbsp;</td>
+            <td style="width: 100%">
+              <input
+                type="button"
+                :value="btn.displayText"
+                v-on:click='onButtonPressed(btn.name)'
+                :name="btn.name"
+              />
+            </td>
+          </tr>
         </table>
       </fieldset>
     </form>
@@ -32,9 +39,11 @@
 <script>
 import MagInput from "./MagInput.vue";
 var mapFields = new Map();
+var mapButtons = new Map();
 export default {
   props: {
-    fieldDefinitions: Array, //[this.FieldDef], //Object, //array of FieldDef,
+    fieldDefinitions: Array,
+    buttonDefinitions: Array,
     debug: Boolean,
     title: String,
   },
@@ -42,11 +51,16 @@ export default {
     MagInput,
   },
   data: function () {
-    return { aaa: "bbb" };
+    return {};
   },
   created: function () {
-    for (var i = 0; i < this.fieldDefinitions.length; i++) {
+    for (let i = 0; i < this.fieldDefinitions.length; i++) {
       mapFields.set(this.fieldDefinitions[i].name, this.fieldDefinitions[i]);
+    }
+    if (this.buttonDefinitions) {
+      for (let i = 0; i < this.buttonDefinitions.length; i++) {
+        mapButtons.set(this.buttonDefinitions[i].name,this.buttonDefinitions[i]);
+      }
     }
   },
   mounted: function () {
@@ -67,6 +81,13 @@ export default {
       f.value = val;
       this.$emit("lostfocus", val, name);
     },
+    onButtonPressed(name) {
+      // if (this.debug) {
+      //   console.log("onButtonPressed " + name);
+      // }
+      //var b = mapButtons.get(name);
+      this.$emit("buttonpressed", name);
+    },
   },
 };
 </script>
@@ -76,11 +97,23 @@ export default {
   border: 1px solid #000088;
 }
 #magformdiv {
-/* border: 2px solid rgb(21, 21, 194); */
-/* font-family: "Avenir", Helvetica, Arial, sans-serif; */
-/* background-color: lightskyblue; */
-/* padding: 0px; */
-padding-top: 8px;
-/* margin: 0px; */
+  /* border: 2px solid rgb(21, 21, 194); */
+  /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
+  /* background-color: lightskyblue; */
+  /* padding: 0px; */
+  padding-top: 8px;
+  /* margin: 0px; */
+}
+input[type="xxxxxxbutton"],
+input[type="xxxxxsubmit"],
+input[type="xxxxxxreset"] {
+  border: 1px solid blue;
+  border-radius: 3px;
+  background-color: white;
+  color: blue;
+  /* padding: 16px 32px; */
+  /* text-decoration: none; */
+  /* margin: 4px 2px; */
+  /* cursor: pointer; */
 }
 </style>

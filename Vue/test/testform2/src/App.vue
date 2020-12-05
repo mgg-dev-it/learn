@@ -5,7 +5,7 @@
     </div>
     <div class="w3-container" style="border:0px solid blue">
       <div>
-        <MagForm :fieldDefinitions="this.tableDefA" title="Input 1" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
+        <MagForm :fieldDefinitions="this.tableDefA" title="Input 1" @valuechanged="onValueChanged" @lostfocus="onLostFocus" @buttonpressed="onButtonPressed" :debug="debug"></MagForm>
         <div class="w3-container" style="border:0px solid red">
           <p>Value of test field 1: {{this.tableDefA[0].value}}</p>
           <p>Value of test field 2: {{this.tableDefA[1].value}}</p>
@@ -15,7 +15,7 @@
     </div>
     <div class="w3-container" style="border:0px solid green">
       <div>
-        <MagForm :fieldDefinitions="this.tableDefB" title="Input 2" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
+        <MagForm :fieldDefinitions="this.tableDefB" title="Input 2" @valuechanged="onValueChanged" @lostfocus="onLostFocus" @buttonpressed="onButtonPressed" :debug="debug"></MagForm>
         <div class="w3-container" style="border:0px solid red">
           <p>Value of test field b1: {{this.tableDefB[0].value}}</p>
           <p>Value of test field b2: {{this.tableDefB[1].value}}</p>
@@ -25,7 +25,7 @@
     </div>
     <div class="w3-container" style="border:0px solid orange">
       <div>
-        <MagForm :fieldDefinitions="this.tableTest.getFields()" title="Teszt form" @valuechanged="onValueChanged" @lostfocus="onLostFocus" :debug="debug"></MagForm>
+        <MagForm :fieldDefinitions="this.tableTest.getFields()" :buttonDefinitions="this.buttonDefA" title="Teszt form" @valuechanged="onValueChanged" @lostfocus="onLostFocus" @buttonpressed="onButtonPressed" :debug="debug"></MagForm>
         <div class="w3-container" style="border:0px solid red">
           <p>Value of test field t1: {{this.tableTest.getFields()[0].value}}</p>
           <p>Value of test field t2: {{this.tableTest.getFields()[1].value}}</p>
@@ -41,10 +41,10 @@
 import MagForm from "./components/MagForm.vue";
 import "@/assets/w3.css";
 import { dbmixin } from "@/mixins/dbmixin.js";
-//import { fieldmixin } from "@/mixins/fieldmixin.js";
+import { controlmixin } from "@/mixins/controlmixin.js";
 
 export default {
-  mixins: [dbmixin],
+  mixins: [dbmixin, controlmixin],
   name: "app",
   components: {
     //MagInput,
@@ -52,8 +52,8 @@ export default {
   },
   data: function() {
     return {
-      debug: false,
-      //debug: true
+      //debug: false,
+      debug: true,
       t: "",
     };
   },
@@ -79,6 +79,11 @@ export default {
     onLostFocus(val, name) {
       if (this.debug) {
         console.log("onLostFocus " + name + " " + val);
+      }
+    },
+    onButtonPressed(name) {
+      if (this.debug) {
+        console.log("onButtonPressed " + name);
       }
     }
   }
