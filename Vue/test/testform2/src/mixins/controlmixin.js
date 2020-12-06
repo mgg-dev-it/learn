@@ -3,12 +3,13 @@ export const controlmixin = {
         return {
             bLoad : new this.ButtonDef("btnLoad", "Load"),
             bSave : new this.ButtonDef("btnSave", "Save"),
-            bRefresh : new this.ButtonDef("btnRefresh", "Refresh")
+            bRefresh : new this.ButtonDef("btnRefresh", "Refresh"),
+            bClear : new this.ButtonDef("btnClear", "Clear")
         }
     },
     computed: {
         buttonDefA: function () {
-            return ([this.bLoad, this.bSave, this.bRefresh])
+            return ([this.bLoad, this.bSave, this.bRefresh, this.bClear]);
         }
     },
     methods: {
