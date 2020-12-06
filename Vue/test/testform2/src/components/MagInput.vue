@@ -4,6 +4,7 @@
       type="text"
       v-model="cv"
       @blur="onBlur"
+      @focus="onFocus"
       @keydown="onKeyDown"
       @keypress="onKeyPress"
       @keyup="onKeyUp"
@@ -12,7 +13,7 @@
       ref="refinput"
       :inputmode="inputMode"
     />
-      <!-- placeholder="type here" -->
+    <!-- placeholder="type here" -->
   </div>
 </template>
 
@@ -24,14 +25,15 @@ export default {
   name: "MagInput2",
   props: {
     fDef: Object, //this.FieldDef,
-    debug: Boolean
+    debug: Boolean,
+    refresh: Boolean,
   },
   data() {
     return {
       inputvalue: "",
       cvd: "",
       prevcvd: "",
-      inputMode: ""
+      inputMode: "",
     };
   },
   computed: {
@@ -48,14 +50,21 @@ export default {
           this.raiseEventValueChanged();
         }
         this.prevcvd = this.cvd;
-      }
-    }
+      },
+    },
+  },
+  watch: {
+    // eslint-disable-next-line no-unused-vars
+    refresh: function (newvalue, oldvalue) {
+      //console.log("testChanged in input " + this.fDef.name + ' ' + this.fDef.value + ' ' + oldvalue + " -> " + newvalue);
+      this.cv = this.fDef.value;
+    },
   },
   beforeCreate() {
     //console.log("MagInput2 beforeCreate");
     // console.log(this.cvd);
   },
-  created: function() {
+  created: function () {
     //console.log("MagInput2 created");
     // console.log(this.cvd);
     if (this.fDef.type == "date" || this.fDef.type == "int") {
@@ -66,7 +75,7 @@ export default {
       this.cvd = this.cvd.toUpperCase();
     }
   },
-  mounted: function() {
+  mounted: function () {
     //console.log("MagInput2 mounted");
     // console.log(this.cvd);
     //this.$emit("valuechanged", this.cvd, this.fDef.name);
@@ -87,20 +96,25 @@ export default {
     },
     formatInt(val) {
       //var s = this.cv.replace(/\D/g, "");
-      var s = val.replace(/\D/g, "");
+      //console.log(typeof val);
+      //var s = val.replace(/\D/g, "");
+      var s = val.toString().replace(/[\D\s]/g, "");
       var l = s.length;
       var t = 0;
       var r = "";
-      //for (var i = l; i--; i > 0) {
       for (var i = l; i > 0; i--) {
         r = s.substring(i - 1, i) + r;
         ++t;
         if (t == 3) {
+          //if (t == 3 && i > 1) {
           r = " " + r;
           t = 0;
         }
       }
-      return r;
+      return r.trim();
+    },
+    deFormatInt(val) {
+      return val.toString().replace(/[\D\s]/g, "");
     },
     onInput(event) {
       if (this.debug) {
@@ -110,14 +124,37 @@ export default {
       }
     },
     // eslint-disable-next-line no-unused-vars
+    onFocus(event) {
+      //console.log("focus");
+      if (this.fDef.type == "int") {
+        this.$refs.refinput.value=this.deFormatInt(this.cv);
+        this.cv = this.deFormatInt(this.cv);
+        //this.cv=100;
+        this.$refs.refinput.select();
+        //this.$refs.refinput.selectionStart = 0;
+        //this.$refs.refinput.selectionEnd = 3;
+      }
+    },
+    // eslint-disable-next-line no-unused-vars
     onBlur(event) {
       //because of IME composition mode ...
-      if (this.fDef.maxLength > 0 && this.cvd.length >= this.fDef.maxLength) {
-        this.cv = this.cv.substring(0, this.fDef.maxLength);
+
+      if (this.fDef.type == "int") {
+        let s = this.cvd.toString().replace(/[\D\s]/g, "");
+        //console.log("s.length " + s.length);
+        //console.log("this.cvd.length " + this.cvd.length);
+        if (this.fDef.maxLength > 0 && s.length >= this.fDef.maxLength) {
+          this.cv = this.cv.substring(0, this.fDef.maxLength);
+        }
+      } else {
+        if (this.fDef.maxLength > 0 && this.cvd.length >= this.fDef.maxLength) {
+          this.cv = this.cv.substring(0, this.fDef.maxLength);
+        }
       }
+
       if (this.fDef.type == "date") {
         //this.cv = "123";
-        var s = this.cv.replace(/\D/g, "");
+        var s = this.cv.toString().replace(/\D/g, "");
         var d = new Date();
         var sYear = String(d.getFullYear());
         var sMonth = String(d.getMonth() + 1);
@@ -194,8 +231,8 @@ export default {
       if (this.debug) {
         console.log("onKeyUp " + event.key);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -209,8 +246,8 @@ export default {
 input:focus {
   background-color: yellow;
   outline: none;
-  }
-.w3-input{
+}
+.w3-input {
   padding-top: 1px;
   padding-left: 5px;
   padding-bottom: 1px;

@@ -25,7 +25,7 @@
     </div>
     <div class="w3-container" style="border:0px solid orange">
       <div>
-        <MagForm :fieldDefinitions="this.tableTest.getFields()" :buttonDefinitions="this.buttonDefA" title="Teszt form" @valuechanged="onValueChanged" @lostfocus="onLostFocus" @buttonpressed="onButtonPressed" :debug="debug"></MagForm>
+        <MagForm :refresh="refresh" :fieldDefinitions="this.tableTest.getFields()" :buttonDefinitions="this.buttonDefA" title="Teszt form" @valuechanged="onValueChanged" @lostfocus="onLostFocus" @buttonpressed="onButtonPressed" :debug="debug"></MagForm>
         <div class="w3-container" style="border:0px solid red">
           <p>Value of test field t1: {{this.tableTest.getFields()[0].value}}</p>
           <p>Value of test field t2: {{this.tableTest.getFields()[1].value}}</p>
@@ -54,7 +54,7 @@ export default {
     return {
       debug: false,
       //debug: true,
-      t: "",
+      refresh: false
     };
   },
   computed: {
@@ -84,6 +84,20 @@ export default {
     onButtonPressed(name) {
       if (this.debug) {
         console.log("onButtonPressed " + name);
+      }
+      switch(name){
+        case "btnLoad":
+          this.tableTest.getFields()[0].value="ABC";
+          this.tableTest.getFields()[1].value=123;
+          this.tableTest.getFields()[2].value="2020/12/03";
+          this.refresh=!this.refresh;
+          break;
+        case "btnSave":
+          //this.refresh=!this.refresh;
+          break;
+        case "btnRefresh":
+          //this.refresh=!this.refresh;
+          break;
       }
     }
   }

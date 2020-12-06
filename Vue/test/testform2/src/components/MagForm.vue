@@ -1,5 +1,6 @@
 <template>
   <div id="magformdiv">
+    <!-- <h2>{{ test }}</h2> -->
     <form class="w3-container">
       <fieldset id="fieldset-mode" class="border-blue" style="width: 100%">
         <legend v-if="title" class="w3-text-indigo">
@@ -16,20 +17,38 @@
                 @valuechanged="onValueChanged"
                 @lostfocus="onLostFocus"
                 :debug="debug"
+                :refresh="refresh"
               ></MagInput>
             </td>
           </tr>
-          <tr v-for="btn in buttonDefinitions" v-bind:key="btn.name">
+
+          <tr v-if="buttonDefinitions">
+            <td>&nbsp;</td>
+            <td :colspan="buttonDefinitions.length">
+              <span v-for="btn in buttonDefinitions" v-bind:key="btn.name">
+                <!-- <input v-for="btn in buttonDefinitions" v-bind:key="btn.name" type="button" :value="btn.displayText" v-on:click="onButtonPressed(btn.name)" :name="btn.name"> -->
+                <input
+                  type="button"
+                  :value="btn.displayText"
+                  v-on:click="onButtonPressed(btn.name)"
+                  :name="btn.name"
+                  class="w3-button w3-white w3-border w3-border-blue w3-round"
+                  style="padding: 2px 5px"
+                />&nbsp;
+              </span>
+            </td>
+          </tr>
+          <!-- <tr v-for="btn in buttonDefinitions" v-bind:key="btn.name">
             <td>&nbsp;</td>
             <td style="width: 100%">
               <input
                 type="button"
                 :value="btn.displayText"
-                v-on:click='onButtonPressed(btn.name)'
+                v-on:click="onButtonPressed(btn.name)"
                 :name="btn.name"
               />
             </td>
-          </tr>
+          </tr> -->
         </table>
       </fieldset>
     </form>
@@ -46,6 +65,7 @@ export default {
     buttonDefinitions: Array,
     debug: Boolean,
     title: String,
+    refresh: Boolean
   },
   components: {
     MagInput,
@@ -59,7 +79,12 @@ export default {
     }
     if (this.buttonDefinitions) {
       for (let i = 0; i < this.buttonDefinitions.length; i++) {
-        mapButtons.set(this.buttonDefinitions[i].name,this.buttonDefinitions[i]);
+        if (this.buttonDefinitions[i]) {
+          mapButtons.set(
+            this.buttonDefinitions[i].name,
+            this.buttonDefinitions[i]
+          );
+        }
       }
     }
   },
@@ -89,6 +114,17 @@ export default {
       this.$emit("buttonpressed", name);
     },
   },
+  // computed: {
+  //   testChanged: function () {
+  //     console.log("testChanged " + this.test);
+  //     return this.test;
+  //   },
+  // },
+  // watch: {
+  //   refresh: function (newvalue, oldvalue) {
+  //     console.log("testChanged " + oldvalue + " -> " + newvalue);
+  //   },
+  // },
 };
 </script>
 
