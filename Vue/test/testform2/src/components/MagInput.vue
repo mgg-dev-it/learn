@@ -127,13 +127,14 @@ export default {
     onFocus(event) {
       //console.log("focus");
       if (this.fDef.type == "int") {
-        this.$refs.refinput.value=this.deFormatInt(this.cv);
+        this.$refs.refinput.value = this.deFormatInt(this.cv);
         this.cv = this.deFormatInt(this.cv);
         //this.cv=100;
-        this.$refs.refinput.select();
+//        this.$refs.refinput.select();
         //this.$refs.refinput.selectionStart = 0;
         //this.$refs.refinput.selectionEnd = 3;
       }
+      this.$refs.refinput.select();
     },
     // eslint-disable-next-line no-unused-vars
     onBlur(event) {
