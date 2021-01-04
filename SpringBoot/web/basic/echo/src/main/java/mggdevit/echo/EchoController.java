@@ -35,9 +35,14 @@ public class EchoController {
 		return (sJSON);
 	}
 	
-	@RequestMapping("*")
+	@RequestMapping("/echo/*")
 	public String echoFallback() {
-		return ("Fallback");
+		return ("Echo Fallback");
+	}
+	
+	@RequestMapping("*")
+	public String allFallback() {
+		return ("All Fallback");
 	}
 
 }
