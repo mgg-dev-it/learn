@@ -15,4 +15,14 @@ print ("--------------------------------------------------------------")
 print ("--------------------------------------------------------------")
 # print (r.html.links)
 # print (r.html.absolute_links)
-print (type (r.html.links))
+# print (type (r.html.links))
+# r.html.render
+# print (r.html.text)
+
+r.html.render()
+
+fout = open('a.html', 'wt', encoding='utf-8')
+print(r.html.raw_html, file=fout)
+# print(r.html.text, file=fout)
+# print(r.html.full_text, file=fout)
+fout.close()
