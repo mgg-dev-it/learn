@@ -1,6 +1,7 @@
 # https://requests-html.kennethreitz.org/
 # $ pipenv install requests-html
 # $ python -m pip install requests-html
+# $ python -m pip install requests-html --trusted-host pypi.org --trusted-host files.pythonhosted.org
 
 import requests_html
 
