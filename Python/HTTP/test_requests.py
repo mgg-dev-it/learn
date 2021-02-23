@@ -1,5 +1,10 @@
 # https://requests.kennethreitz.org/en/master/
 # $ python -m pip install requests
+# $ python -m pip install requests --trusted-host pypi.org --trusted-host files.pythonhosted.org
+# $ python -m pip install requests  config --global http.sslVerify false
+# $ pip install --upgrade pip --trusted-host pypi.org --trusted-host files.pythonhosted.org
+# $ pip install --upgrade pip --tr  config --global http.sslVerify falseusted-host pypi.org --trusted-host files.pythonhosted.org
+# $ e:\Users\MG\prog\python-3_9_2\python.exe -m pip install --upgrade pip
 import requests
 import json
 
