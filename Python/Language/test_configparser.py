@@ -4,7 +4,17 @@ import configparser
 
 cfg = configparser.ConfigParser()
 
-cfg.read_file(open('defaults.cfg'))
+# try:
+#     cfg.read_file(open('defaults.cfg'))
+# except FileNotFoundError as fnfe:
+#     print('Handled FileNotFoundError:', fnfe)
+# except Exception as e:
+#     print('something went wrong:', e)
 
-cfg.read('test.cfg')
+# a = cfg.read('test.cfg')
+# print (a)
 
+# print(cfg['french'])
+
+cfg.read_file(open('test.cfg'))
+print(cfg['french'])

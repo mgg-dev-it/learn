@@ -11,7 +11,6 @@ try:
     print (a)
 except ZeroDivisionError as zde:
     print('Handled ZeroDivisionError:', zde)
-    #print(zde)
 except Exception as e:
     print('something went wrong:', e)
 
