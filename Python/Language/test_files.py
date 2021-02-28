@@ -1,3 +1,6 @@
+# https://docs.python.org/3/library/fileinput.html
+# https://docs.python.org/3/library/os.html
+
 import os
 
 cwd = os.getcwd()
