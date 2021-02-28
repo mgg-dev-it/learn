@@ -1,4 +1,5 @@
 # $ python -m pip install selenium
+# $ python -m pip install selenium --trusted-host pypi.org --trusted-host files.pythonhosted.org
 # https://www.javatpoint.com/selenium-python
 # https://www.guru99.com/selenium-python.html
 # https://www.geeksforgeeks.org/selenium-python-tutorial/
