@@ -16,5 +16,6 @@ cfg = configparser.ConfigParser()
 
 # print(cfg['french'])
 
-cfg.read_file(open('test.cfg'))
-print(cfg['french'])
+# cfg.read_file(open('test.cfg'))
+# print(cfg['french'])
+
