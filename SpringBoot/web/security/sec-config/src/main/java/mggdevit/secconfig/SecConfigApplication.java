@@ -10,6 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  * {noop} needed before the plain passwords
  * 
+ * /login implicit
+ * 
+ * /logout implicit
+ * 
  */
 
 @SpringBootApplication
