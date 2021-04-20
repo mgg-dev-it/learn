@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Scope</title>
+<link rel="stylesheet" th:href="@{/css/mgg.css}" />
+</head>
+
+<body>
+	<div>Scope</div>
+
+	<div class="commondiv">
+		<span th:text="'Message = ' + ${message}"></span>
+	</div>
+
+	<div class="commondiv">
+		<span th:text="'bean1counter = ' + ${bean1counter}"></span>
+	</div>
+
+	<div class="commondiv">
+		<span th:text="'bean1nextcounter = ' + ${bean1nextcounter}"></span>
+	</div>
+
+</body>
+
+
+</html>
