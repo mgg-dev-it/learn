@@ -1,9 +1,15 @@
 package mggdevit.scope.bean;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Component
+//@RequestScope
+@SessionScope
 public class Bean1 {
+	
+//	@Autowired
+//	private ApplicationContext applicationContext;
 
 	private int iCounter = 0;
 
