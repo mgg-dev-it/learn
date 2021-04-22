@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.ui.Model;
@@ -31,7 +32,9 @@ public class ErrController implements ErrorController {
 		// Map<String, Object> errorMap =
 		// this.errorAttributes.getErrorAttributes(requestAttributes, true);
 		ServletWebRequest servletWebRequest = new ServletWebRequest(request);
-		Map<String, Object> errorAttributes = this.errorAttributes.getErrorAttributes(servletWebRequest, true);
+		// Map<String, Object> errorAttributes =
+		// this.errorAttributes.getErrorAttributes(servletWebRequest, true);
+		Map<String, Object> errorAttributes = this.errorAttributes.getErrorAttributes(servletWebRequest, ErrorAttributeOptions.defaults());
 
 		model.addAttribute("timestamp", errorAttributes.get("timestamp"));
 		model.addAttribute("status", errorAttributes.get("status"));
@@ -43,11 +46,11 @@ public class ErrController implements ErrorController {
 		if (errorAttributes.get("status").toString().equalsIgnoreCase("401")) {
 			return ("error401page");
 		}
-		
+
 		if (errorAttributes.get("status").toString().equalsIgnoreCase("404")) {
 			return ("error404page");
 		}
-		
+
 		return ("errorpage");
 	}
 
