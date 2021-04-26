@@ -47,11 +47,15 @@ public class ErrController implements ErrorController {
 			return ("error401page");
 		}
 
+		if (errorAttributes.get("status").toString().equalsIgnoreCase("403")) {
+			return ("error403page");
+		}
+
 		if (errorAttributes.get("status").toString().equalsIgnoreCase("404")) {
 			return ("error404page");
 		}
 
-		return ("errorpage");
+		return ("errorpage " + errorAttributes.get("status").toString());
 	}
 
 	@Override

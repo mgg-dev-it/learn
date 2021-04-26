@@ -22,7 +22,7 @@ public class TestController {
 		return "User Content.";
 	}
 
-	@GetMapping("/mod")
+	@GetMapping("/moderator")
 	@PreAuthorize("hasRole('MODERATOR')")
 	public String moderatorAccess() {
 		return "Moderator Board.";
